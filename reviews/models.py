@@ -1,4 +1,6 @@
 from django.db import models
+from toys.models import Toy
+from django.contrib.auth.models import User
 
 rating = (
     (1, '1 star'),
@@ -10,7 +12,8 @@ rating = (
 
 # Create your models here.
 class Review(models.Model):
-    title = models.CharField(blank=False, max_length=255)
+    toy = models.ForeignKey(Toy, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.IntegerField(choices=rating, default=3)
     desc = models.TextField(blank=False)
 
