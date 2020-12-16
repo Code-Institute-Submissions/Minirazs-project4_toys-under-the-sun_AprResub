@@ -39,8 +39,35 @@ def update_toy(request, toy_id):
     toy_being_updated = get_object_or_404(Toy, pk=toy_id)
 
     # 2 - create the form and fill it with data from toy instance
-    toy_form = ToyForm(instance=toy_being_updated)
+    if request.method == "POST":
+        toy_form = ToyForm(request.POST, instance=toy_being_updated)
 
-    return render(request, 'toys/update.template.html', {
-        "form": toy_form
-    })
+        # 3. create the form and fill in the user's data. Also specify that
+        # this is to update an existing model (the instance argument)
+        if toy_form.is_valid():
+            toy_form.save()
+            return redirect(reverse(index))
+
+        else:
+            return render(request, 'toys/update.template.html', {
+                "form": toy_form
+            })
+    else:
+        # 4. create a form with the toy details filled in
+        toy_form = ToyForm(instance=toy_being_updated)
+
+        return render(request, 'toys/update.template.html', {
+            "form": toy_form
+        })
+
+
+def delete_toy(request, toy_id):
+    toy_to_delete = get_object_or_404(Toy, pk=toy_id)
+
+    if request.method == 'POST':
+        toy_to_delete.delete()
+        return redirect(index)
+    else:
+        return render(request, 'toys/delete.template.html', {
+            "toy": toy_to_delete
+        })

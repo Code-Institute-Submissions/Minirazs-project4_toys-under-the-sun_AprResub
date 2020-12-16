@@ -15,7 +15,10 @@
     </p>
     <ul>
         {%for toy in toys %}
-        <li>{{toy.title}} <a href="{% url 'update_toy_route' toy_id=toy.id %}">Edit</a> </li>
+        <li>{{toy.title}} 
+            <a href="{% url 'update_toy_route' toy_id=toy.id %}">Edit</a>
+            <a href="{% url 'delete_toy_route' toy_id=toy.id %}">Delete</a> 
+        </li>
         <li>{{toy.price}}</li>
         <li>{{toy.desc}}</li>
         {%endfor%}
