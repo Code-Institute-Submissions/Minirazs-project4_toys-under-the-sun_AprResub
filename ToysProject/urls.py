@@ -21,5 +21,6 @@ import reviews.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('toys/', toys.views.index),
+    path('toys/create', toys.views.create_toy),
     path('reviews/', reviews.views.index)
 ]
