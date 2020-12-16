@@ -62,12 +62,13 @@ def update_toy(request, toy_id):
 
 
 def delete_toy(request, toy_id):
-    toy_to_delete = get_object_or_404(Toy, pk=toy_id)
-
+    
     if request.method == 'POST':
+        toy_to_delete = get_object_or_404(Toy, pk=toy_id)
         toy_to_delete.delete()
         return redirect(index)
     else:
+        toy_to_delete = get_object_or_404(Toy, pk=toy_id)
         return render(request, 'toys/delete.template.html', {
             "toy": toy_to_delete
         })
