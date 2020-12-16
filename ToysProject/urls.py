@@ -22,5 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('toys/', toys.views.index),
     path('toys/create', toys.views.create_toy),
+    path('toys/update/<toy_id>', toys.views.update_toy,
+         name='update_toy_route'),
     path('reviews/', reviews.views.index)
 ]

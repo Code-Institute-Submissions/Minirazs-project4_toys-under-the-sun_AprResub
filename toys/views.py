@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse, redirect, reverse
-from .models import Toy
 from .forms import ToyForm
+from .models import Toy
+from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
 
 # Create your views here.
 
@@ -32,3 +32,15 @@ def create_toy(request):
         return render(request, 'toys/create.template.html', {
             'form': create_form
         })
+
+
+def update_toy(request, toy_id):
+    # 1. retrieve the toy which we are editing
+    toy_being_updated = get_object_or_404(Toy, pk=toy_id)
+
+    # 2 - create the form and fill it with data from toy instance
+    toy_form = ToyForm(instance=toy_being_updated)
+
+    return render(request, 'toys/update.template.html', {
+        "form": toy_form
+    })

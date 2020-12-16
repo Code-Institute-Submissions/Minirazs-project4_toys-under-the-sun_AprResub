@@ -15,7 +15,7 @@
     </p>
     <ul>
         {%for toy in toys %}
-        <li>{{toy.title}}</li>
+        <li>{{toy.title}} <a href="{% url 'update_toy_route' toy_id=toy.id %}">Edit</a> </li>
         <li>{{toy.price}}</li>
         <li>{{toy.desc}}</li>
         {%endfor%}
