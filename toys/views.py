@@ -1,5 +1,12 @@
 from django.shortcuts import render, HttpResponse
+from .models import Toy
 
 # Create your views here.
+
+
 def index(request):
-    return render(request, 'toys/index.template.html')
+    toys = Toy.objects.all()
+
+    return render(request, 'toys/index.template.html', {
+        'toys': toys
+    })
