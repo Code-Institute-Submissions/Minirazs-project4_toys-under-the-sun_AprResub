@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
+    {% if request.user.is_authenticated  %}
+    <p>Welcome {{request.user}}</p>
+    {% else %}
+    <p>Please <a href="/accounts/login">Login</a></p>
+    {%endif%}
+
     <h1>Toys</h1>
     <p>
         Here you can see all the toys that we have.
