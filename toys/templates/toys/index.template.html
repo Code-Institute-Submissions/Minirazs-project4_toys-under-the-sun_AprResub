@@ -20,6 +20,8 @@
             <a href="{% url 'delete_toy_route' toy_id=toy.id %}">Delete</a> 
         </li>
         <li>{{toy.price}}</li>
+        <li>{{toy.country}}</li>
+        <li>{{toy.age}}</li>
         <li>{{toy.desc}}</li>
         {%endfor%}
     </ul>
