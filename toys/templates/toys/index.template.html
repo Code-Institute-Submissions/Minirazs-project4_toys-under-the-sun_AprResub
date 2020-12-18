@@ -1,3 +1,4 @@
+{% extends 'base.template.html' %}
 {%load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +9,9 @@
     <title>Toys</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
+{%block content%}
 <body>
+    
     {% if request.user.is_authenticated  %}
     <p>Welcome {{request.user}}</p>
     {% else %}
@@ -33,4 +36,5 @@
     </ul>
 
 </body>
+{%endblock%}
 </html>
