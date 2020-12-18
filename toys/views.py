@@ -62,7 +62,7 @@ def update_toy(request, toy_id):
 
 
 def delete_toy(request, toy_id):
-    
+
     if request.method == 'POST':
         toy_to_delete = get_object_or_404(Toy, pk=toy_id)
         toy_to_delete.delete()
