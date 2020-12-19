@@ -1,19 +1,11 @@
-{%load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Update Reviews</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
+{%extends 'base.template.html' %}
+{%load crispy_forms_tags %}
+
+{%block content%}
+    <h1>Update Review</h1>
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p}}
+        {{ form|crispy}}
         <input type="Submit"/>
     </form>
-
-</body>
-</html>
+{%endblock%}

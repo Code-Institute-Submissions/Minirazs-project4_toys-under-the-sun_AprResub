@@ -1,20 +1,12 @@
-{%load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Delete Reviews</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
+{%extends 'base.template.html' %}
+{%load crispy_forms_tags %}
+
+{%block content%}
     <h1>Delete review: {{toy.title}}?</h1>
     <form method="POST">
         {% csrf_token %}
+        {{ form|crispy}}
         <input type="submit" value="Yes"/>
         <a href="{% url 'show_toy_route' %}">No</a>
     </form>
-
-</body>
-</html>
+{%endblock%}
