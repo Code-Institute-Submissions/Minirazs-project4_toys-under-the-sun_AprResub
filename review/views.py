@@ -11,7 +11,7 @@ from toy.models import Toy
 def index(request):
     reviews = Review.objects.all()
 
-    return render(request, 'reviews/index.template.html', {
+    return render(request, 'review/index.template.html', {
         'reviews': reviews
     })
 
@@ -35,7 +35,7 @@ def create_review(request, toy_id):
             return redirect(index)
     else:
         form = ReviewForm()
-        return render(request, 'reviews/create.template.html', {
+        return render(request, 'review/create.template.html', {
             'form': form,
             'toy': toy
         })
@@ -57,14 +57,14 @@ def update_review(request, review_id):
             return redirect(reverse(index))
 
         else:
-            return render(request, 'reviews/update.template.html', {
+            return render(request, 'review/update.template.html', {
                 "form": review_form
             })
     else:
         # 4. create a form with the review details filled in
         review_form = ReviewForm(instance=review_being_updated)
 
-        return render(request, 'reviews/update.template.html', {
+        return render(request, 'review/update.template.html', {
             "form": review_form
         })
 
@@ -78,6 +78,6 @@ def delete_review(request, review_id):
         return redirect(index)
     else:
         review_to_delete = get_object_or_404(Review, pk=review_id)
-        return render(request, 'reviews/delete.template.html', {
+        return render(request, 'review/delete.template.html', {
             "review": review_to_delete
         })
