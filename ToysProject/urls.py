@@ -16,31 +16,31 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import toy.views
-import reviews.views
-import orders.views
+import review.views
+import order.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     # toy urls
-    path('toys/', toy.views.index,
+    path('toy/', toy.views.index,
          name='show_toy_route'),
-    path('toys/create', toy.views.create_toy,
+    path('toy/create', toy.views.create_toy,
          name='create_toy_route'),
-    path('toys/update/<toy_id>', toy.views.update_toy,
+    path('toy/update/<toy_id>', toy.views.update_toy,
          name='update_toy_route'),
-    path('toys/delete/<toy_id>', toy.views.delete_toy,
+    path('toy/delete/<toy_id>', toy.views.delete_toy,
          name='delete_toy_route'),
     # review urls
-    path('reviews/', reviews.views.index,
+    path('review/', review.views.index,
          name='show_review_route'),
-    path('reviews/create/<toy_id>', reviews.views.create_review,
+    path('review/create/<toy_id>', review.views.create_review,
          name='create_review_route'),
-    path('reviews/update/<review_id>', reviews.views.update_review,
+    path('review/update/<review_id>', review.views.update_review,
          name='update_review_route'),
-    path('reviews/delete/<review_id>', reviews.views.delete_review,
+    path('review/delete/<review_id>', review.views.delete_review,
          name='delete_review_route'),
     # order urls
-    path('orders/', orders.views.index,
+    path('order/', order.views.index,
          name='show_order_route')
 ]

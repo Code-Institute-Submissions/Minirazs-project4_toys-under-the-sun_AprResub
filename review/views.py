@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
 from .models import Review
 from .forms import ReviewForm
-from toys.models import Toy
+from toy.models import Toy
 
 # Create your views here.
 

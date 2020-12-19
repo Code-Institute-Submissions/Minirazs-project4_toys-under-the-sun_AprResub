@@ -1,5 +1,5 @@
 from django.db import models
-from toys.models import Toy
+from toy.models import Toy
 from django.contrib.auth.models import User
 
 rating = (

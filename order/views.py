@@ -8,6 +8,6 @@ def index(request):
 
     orders = Order.objects.all()
 
-    return render(request, 'orders/index.template.html', {
+    return render(request, 'order/index.template.html', {
         'orders': orders
     })

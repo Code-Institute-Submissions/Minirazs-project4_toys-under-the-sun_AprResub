@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from toys.models import Toy
+from toy.models import Toy
 
 # Create your models here.
 

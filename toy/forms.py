@@ -5,4 +5,5 @@ from .models import Toy
 class ToyForm(forms.ModelForm):
     class Meta:
         model = Toy
-        fields = ('title', 'price', 'country', 'age', 'desc', 'features')
+        fields = ('title', 'brand', 'price', 'country', 'age', 'desc',
+                  'features')
