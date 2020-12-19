@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 import toys.views
 import reviews.views
+import orders.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +29,6 @@ urlpatterns = [
          name='update_toy_route'),
     path('toys/delete/<toy_id>', toys.views.delete_toy,
          name='delete_toy_route'),
-    path('reviews/', reviews.views.index)
+    path('reviews/', reviews.views.index),
+    path('orders/', orders.views.index)
 ]

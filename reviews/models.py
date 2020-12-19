@@ -11,12 +11,14 @@ rating = (
 )
 
 # Create your models here.
+
+
 class Review(models.Model):
     toy = models.ForeignKey(Toy, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.IntegerField(choices=rating, default=3)
     desc = models.TextField(blank=False)
 
-#show the name in the database, make it into a string
+# show the name in the database, make it into a string
     def __str__(self):
-        return self.title 
+        return self.title
