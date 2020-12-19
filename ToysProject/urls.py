@@ -23,26 +23,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     # toy urls
-    path('toy/', toy.views.index,
-         name='show_toy_route'),
-    path('toy/create', toy.views.create_toy,
-         name='create_toy_route'),
-    path('toy/update/<toy_id>', toy.views.update_toy,
-         name='update_toy_route'),
-    path('toy/delete/<toy_id>', toy.views.delete_toy,
-         name='delete_toy_route'),
-    path('toy/<toy_id>', toy.views.one_toy,
-         name='one_toy_route'),
+    path('toy/', include('toy.urls')),
+    
     # review urls
-    path('review/', review.views.index,
-         name='show_review_route'),
-    path('review/create/<toy_id>', review.views.create_review,
-         name='create_review_route'),
-    path('review/update/<review_id>', review.views.update_review,
-         name='update_review_route'),
-    path('review/delete/<review_id>', review.views.delete_review,
-         name='delete_review_route'),
+    path('review/', include('review.urls')),
+    
     # order urls
-    path('order/', order.views.index,
-         name='show_order_route')
+    path('order/', include('order.urls'))
 ]
