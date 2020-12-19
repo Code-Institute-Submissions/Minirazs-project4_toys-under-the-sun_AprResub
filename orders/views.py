@@ -5,4 +5,9 @@ from .models import Order
 
 # Create your views here.
 def index(request):
-    return render(request, 'orders/index.template.html')
+
+    orders = Order.objects.all()
+
+    return render(request, 'orders/index.template.html', {
+        'orders': orders
+    })

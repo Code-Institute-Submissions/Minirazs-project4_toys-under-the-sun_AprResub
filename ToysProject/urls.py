@@ -22,13 +22,25 @@ import orders.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    # toy urls
     path('toys/', toys.views.index,
          name='show_toy_route'),
-    path('toys/create', toys.views.create_toy),
+    path('toys/create', toys.views.create_toy,
+         name='create_toy_route'),
     path('toys/update/<toy_id>', toys.views.update_toy,
          name='update_toy_route'),
     path('toys/delete/<toy_id>', toys.views.delete_toy,
          name='delete_toy_route'),
-    path('reviews/', reviews.views.index),
-    path('orders/', orders.views.index)
+    # review urls
+    path('reviews/', reviews.views.index,
+         name='show_review_route'),
+    path('reviews/create/<toy_id>', reviews.views.create_review,
+         name='create_review_route'),
+    path('reviews/update/<review_id>', reviews.views.update_review,
+         name='update_review_route'),
+    path('reviews/delete/<review_id>', reviews.views.delete_review,
+         name='delete_review_route'),
+    # order urls
+    path('orders/', orders.views.index,
+         name='show_order_route')
 ]
