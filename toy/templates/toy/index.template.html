@@ -34,12 +34,12 @@
         <br>
         <div class="card" style="max-width: 320px; height: 350px">
             <div class="card_image">
-                <a href="{{ url_for('one_toy_route', toy_id=toy_id ) }}">
+                <a href="{%url 'one_toy_route' toy_id=toy.id %}">
                     <img src="" class="card-img-top thumbnail" alt="{{toy.title}}"/>
                 </a>
             </div>
             <div class="card-body">
-            <a href="{{ url_for('one_toy_route', toy_id=toy_id ) }}">
+            <a href="{%url 'one_toy_route' toy_id=toy.id %}">
                 <h5 class="card-title center_text">{{toy.title}}</h5>
             </a>
             <h6 class="card-text center_text">
