@@ -31,6 +31,8 @@ urlpatterns = [
          name='update_toy_route'),
     path('toy/delete/<toy_id>', toy.views.delete_toy,
          name='delete_toy_route'),
+    path('toy/<toy_id>', toy.views.one_toy,
+         name='one_toy_route'),
     # review urls
     path('review/', review.views.index,
          name='show_review_route'),

@@ -15,6 +15,14 @@ def index(request):
     })
 
 
+def one_toy(request, toy_id):
+    toy = get_object_or_404(Toy, pk=toy_id)
+    
+    return render(request, 'toy/one.template.html', {
+        'toy': toy
+    })
+
+
 @login_required
 def create_toy(request):
     if request.method == 'POST':  # 1

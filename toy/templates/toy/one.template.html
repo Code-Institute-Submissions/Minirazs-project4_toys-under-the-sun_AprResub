@@ -1,0 +1,26 @@
+{%extends 'base.template.html' %}
+{%load crispy_forms_tags %}
+
+{%block content%}
+    <div class="container">
+        <div class="row">
+            <h1>{{toy.title}}</h1>
+        </div>
+        <div class="row">
+            <ul>
+                <li>Brand: {{toy.brand}}</li>
+                <li>Price: {{toy.price}}</li>
+                <li>Age Group: {{toy.age}}</li>
+                <li>Country of Origin: {{toy.country}}</li>
+            </ul>
+        </div>
+        <div class="row">
+            {{toy.desc}}
+        </div>
+        <div class="row">
+            {{toy.features}}
+        </div>
+
+    </div>
+
+{%endblock%}
