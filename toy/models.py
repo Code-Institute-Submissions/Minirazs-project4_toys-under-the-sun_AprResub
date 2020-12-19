@@ -23,7 +23,7 @@ age = (
 
 
 class Toy(models.Model):
-    title = models.CharField(blank=False, max_length=255, default='')
+    title = models.CharField(blank=False, max_length=100, default='')
     brand = models.CharField(blank=False, max_length=50, default='')
     price = models.FloatField(blank=False, default='')
     country = models.CharField(choices=country, max_length=50, default='China')
