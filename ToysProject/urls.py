@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import toys.views
+import toy.views
 import reviews.views
 import orders.views
 
@@ -23,13 +23,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     # toy urls
-    path('toys/', toys.views.index,
+    path('toys/', toy.views.index,
          name='show_toy_route'),
-    path('toys/create', toys.views.create_toy,
+    path('toys/create', toy.views.create_toy,
          name='create_toy_route'),
-    path('toys/update/<toy_id>', toys.views.update_toy,
+    path('toys/update/<toy_id>', toy.views.update_toy,
          name='update_toy_route'),
-    path('toys/delete/<toy_id>', toys.views.delete_toy,
+    path('toys/delete/<toy_id>', toy.views.delete_toy,
          name='delete_toy_route'),
     # review urls
     path('reviews/', reviews.views.index,
