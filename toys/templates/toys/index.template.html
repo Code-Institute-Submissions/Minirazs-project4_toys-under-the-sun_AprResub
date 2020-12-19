@@ -31,7 +31,8 @@
         <li>{{toy.price}}</li>
         <li>{{toy.country}}</li>
         <li>{{toy.age}}</li>
-        <li>{{toy.desc}}</li>
+        <li>{{toy.desc| truncatechars:100 }}</li>
+        <br>
         {%endfor%}
     </ul>
 

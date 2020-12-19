@@ -28,6 +28,7 @@ class Toy(models.Model):
     country = models.CharField(choices=country, max_length=50, default='China')
     age = models.CharField(choices=age, max_length=50, default='5-7 years')
     desc = models.TextField(blank=False)
+    features = models.TextField(blank=False)
 
 # show the name in the database, make it into a string
     def __str__(self):
