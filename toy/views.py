@@ -14,11 +14,11 @@ def index(request):
         'toys': toys
     })
 
-
+#show details of a specific toy
 def one_toy(request, toy_id):
     toy = get_object_or_404(Toy, pk=toy_id)
     
-    return render(request, 'toy/one.template.html', {
+    return render(request, 'toy/one_toy.template.html', {
         'toy': toy
     })
 
