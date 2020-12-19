@@ -31,7 +31,7 @@ def create_review(request, toy_id):
             review.user = request.user  # request.user contain logged in user
             review.toy = toy
             review.save()
-            messages.success(request, "New review added!")
+            messages.success(request, "New review added! " + review.title)
             return redirect(index)
     else:
         form = ReviewForm()

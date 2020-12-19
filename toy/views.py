@@ -14,10 +14,12 @@ def index(request):
         'toys': toys
     })
 
-#show details of a specific toy
+# show details of a specific toy
+
+
 def one_toy(request, toy_id):
     toy = get_object_or_404(Toy, pk=toy_id)
-    
+
     return render(request, 'toy/one_toy.template.html', {
         'toy': toy
     })
@@ -32,7 +34,8 @@ def create_toy(request):
         # check if the form has valid values
         if create_form.is_valid():  # 3
             create_form.save()  # 4
-            messages.success(request, f"New toy {create_form.cleaned_data['title']} has been created")
+            messages.success(
+                request, f"New toy {create_form.cleaned_data['title']} has been created")
             return redirect(reverse(index))
         else:
             # 5. if does not have valid values, re-render the form
