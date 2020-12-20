@@ -1,18 +1,55 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
-from .forms import ToyForm
+from .forms import ToyForm, SearchForm
 from .models import Toy
+from django.db.models import Q
 
 # Create your views here.
 
 
 def index(request):
     toys = Toy.objects.all()
-
+    
     return render(request, 'toy/index.template.html', {
         'toys': toys
     })
+
+def search(request):
+    # a query set that represents ALL the toys
+    toy_query = Toy.objects.all()
+    search_form = SearchForm()
+
+    # create an empty query  -- represents ALWAYS TRUE
+    queries = ~Q(pk__in=[])
+
+    # check if the user has submitted anything
+    if request.GET:
+        # if the user has filled in the title
+        if 'title' in request.GET and request.GET['title']:
+            queries = queries & Q(title__icontains=request.GET['title'])
+
+        if 'age' in request.GET and request.GET['age']:
+            queries = queries & Q(genre=request.GET['age'])
+
+        if 'country' in request.GET and request.GET['country']:
+            queries = queries & Q(tags__in=request.GET['country'])
+
+        if 'price' in request.GET and request.GET['price']:
+            queries = queries & Q(tags__in=request.GET['price'])
+
+    # sandbox
+    # queries = queries & Q(title__icontains="rings")
+    # queries = queries & Q(tags__in=[2])
+    # endsandbox
+
+    all_toys = toy_query.filter(queries)
+
+    return render(request, '/search.template.html', {
+        'toys': all_toys,
+        'search_form': search_form
+    })
+
 
 # show details of a specific toy
 
