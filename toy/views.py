@@ -10,9 +10,11 @@ from django.db.models import Q
 
 def index(request):
     toys = Toy.objects.all()
+    search_form = SearchForm()
 
     return render(request, 'toy/index.template.html', {
-        'toys': toys
+        'toys': toys,
+        'search_form': search_form
     })
 
 
@@ -31,13 +33,13 @@ def search(request):
             queries = queries & Q(title__icontains=request.GET['title'])
 
         if 'age' in request.GET and request.GET['age']:
-            queries = queries & Q(genre=request.GET['age'])
+            queries = queries & Q(age=request.GET['age'])
 
         if 'country' in request.GET and request.GET['country']:
-            queries = queries & Q(tags__in=request.GET['country'])
+            queries = queries & Q(country__in=request.GET['country'])
 
         if 'price' in request.GET and request.GET['price']:
-            queries = queries & Q(tags__in=request.GET['price'])
+            queries = queries & Q(price__in=request.GET['price'])
 
     # sandbox
     # queries = queries & Q(title__icontains="rings")
