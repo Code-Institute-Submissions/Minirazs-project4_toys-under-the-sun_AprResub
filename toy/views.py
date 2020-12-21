@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from .forms import ToyForm, SearchForm
 from .models import Toy
@@ -64,7 +65,7 @@ def one_toy(request, toy_id):
     })
 
 
-@login_required
+@staff_member_required
 def create_toy(request):
     if request.method == 'POST':  # 1
 
@@ -88,7 +89,7 @@ def create_toy(request):
         })
 
 
-@login_required
+@staff_member_required
 def update_toy(request, toy_id):
     # 1. retrieve the toy which we are editing
     toy_being_updated = get_object_or_404(Toy, pk=toy_id)
@@ -116,7 +117,7 @@ def update_toy(request, toy_id):
         })
 
 
-@login_required
+@staff_member_required
 def delete_toy(request, toy_id):
 
     if request.method == 'POST':
