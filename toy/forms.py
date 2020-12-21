@@ -25,7 +25,7 @@ price = (
     (50-99, '$50-99'),
     (100-149, '$100-149'),
     (150-199, '$150-199'),
-    (200, '> 200')
+    (200, '>$200')
 )
 
 
@@ -46,4 +46,4 @@ class SearchForm(forms.Form):
     price = forms.ChoiceField(choices=price, label="",
                               initial='', widget=forms.Select(),
                               required=False)
-    search_terms = forms.CharField(required=False)
+    #search_terms = forms.CharField(required=False)
