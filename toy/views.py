@@ -37,10 +37,7 @@ def search(request):
 
         if 'country' in request.GET and request.GET['country']:
             queries = queries & Q(country__in=request.GET['country'])
-
-        if 'price' in request.GET and request.GET['price']:
-            queries = queries & Q(price__in=request.GET['price'])
-
+            
        
 
     # sandbox

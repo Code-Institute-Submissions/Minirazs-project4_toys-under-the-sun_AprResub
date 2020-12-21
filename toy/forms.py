@@ -20,15 +20,6 @@ country = (
     ('SE Asia', 'SE Asia')
 )
 
-price = (
-    ('0-49', '$0-49'),
-    ('50-99', '$50-99'),
-    ('100-149', '$100-149'),
-    ('150-199', '$150-199'),
-    ('200', '>$200')
-)
-
-
 class ToyForm(forms.ModelForm):
     class Meta:
         model = Toy
@@ -43,7 +34,4 @@ class SearchForm(forms.Form):
     country = forms.ChoiceField(choices=country, label="",
                                 initial='', widget=forms.Select(),
                                 required=False)
-    price = forms.ChoiceField(choices=price, label="",
-                              initial='', widget=forms.Select(),
-                              required=False)
-    #search_terms = forms.CharField(required=False)
+
