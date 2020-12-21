@@ -9,16 +9,7 @@
     </form>
 
     <div id="display_toys">  
-        <ul>
-            {%for toy in toys %}
-            <li>{{toy.title}} 
-            
-            </li>
-            <li>{{toy.price}}</li>
-            <li>{{toy.country}}</li>
-            <li>{{toy.age}}</li>
-            <li>{{toy.desc| truncatechars:100 }}</li>
-            <br>
+        {%for toy in toys %}
             <div class="card" style="max-width: 320px; height: 350px">
                 <div class="card_image">
                     <a href="{%url 'one_toy_route' toy_id=toy.id %}">
@@ -30,15 +21,14 @@
                     <h5 class="card-title center_text">{{toy.title}}</h5>
                 </a>
                 <h6 class="card-text center_text">
-                    {{toy.price}}
+                    ${{toy.price}}
                 </h6>
                 <h6 class="card-text center_text">
                     {{toy.desc| truncatechars:100 }}
                 </h6>
                 </div>
             </div>
-            {%endfor%}
-        </ul>
+        {%endfor%}
     </div>  
     
 {%endblock%}

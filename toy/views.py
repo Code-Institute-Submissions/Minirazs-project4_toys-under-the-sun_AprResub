@@ -36,8 +36,8 @@ def search(request):
             queries = queries & Q(age=request.GET['age'])
 
         if 'country' in request.GET and request.GET['country']:
-            queries = queries & Q(country__in=request.GET['country'])
-            
+            queries = queries & Q(country=request.GET['country'])
+
        
 
     # sandbox
