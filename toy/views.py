@@ -41,6 +41,8 @@ def search(request):
         if 'price' in request.GET and request.GET['price']:
             queries = queries & Q(price__in=request.GET['price'])
 
+       
+
     # sandbox
     # queries = queries & Q(title__icontains="rings")
     # queries = queries & Q(tags__in=[2])
