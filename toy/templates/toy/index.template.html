@@ -10,7 +10,7 @@
     {%endif%}
 
     <h1>Toys</h1>
-    <form method="GET">
+    <form method="GET" action="{% url 'search_toy' %}">
         {{search_form|crispy}}
         <input type="submit" value="Search" class="btn btn-primary"/>
     </form>
