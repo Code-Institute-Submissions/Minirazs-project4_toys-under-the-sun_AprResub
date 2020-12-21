@@ -1,5 +1,6 @@
 {%extends 'base.template.html' %}
 {%load crispy_forms_tags %}
+{% load cloudinary %}
 {% load static %}
 
 {%block content%}
@@ -13,7 +14,7 @@
             <div class="card" style="max-width: 320px; height: 350px">
                 <div class="card_image">
                     <a href="{%url 'one_toy_route' toy_id=toy.id %}">
-                        <img src="" class="card-img-top thumbnail" alt="{{toy.title}}"/>
+                        <img src="{% cloudinary toy.cover %}" class="card-img-top thumbnail" alt="{{toy.title}}"/>
                     </a>
                 </div>
                 <div class="card-body">

@@ -1,5 +1,7 @@
 {%extends 'base.template.html' %}
 {%load crispy_forms_tags %}
+{% load cloudinary %}
+{% load static %}
 
 {%block content%}
     <div class="container">
@@ -13,6 +15,9 @@
                 <li>Age Group: {{toy.age}}</li>
                 <li>Country of Origin: {{toy.country}}</li>
             </ul>
+        </div>
+        <div class="row">
+            {% cloudinary toy.cover %}
         </div>
         <div class="row">
             {{toy.desc}}
