@@ -1,9 +1,13 @@
 {%extends 'base.template.html' %}
 {%load crispy_forms_tags %}
+{% load static %}
 
 {%block content%}
     <form method="GET">
         {{search_form|crispy}}
         <input type="submit" value="Search" class="btn btn-primary"/>
     </form>
+
+    {% include "display_toys.template.html" with toys=toys %}
+    
 {%endblock%}

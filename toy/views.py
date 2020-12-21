@@ -11,7 +11,7 @@ from django.db.models import Q
 def index(request):
     toys = Toy.objects.all()
 
-    return render(request, 'toy/index.template.html', {
+    return render(request, 'toy/display_toys.template.html', {
         'toys': toys
     })
 
@@ -46,7 +46,7 @@ def search(request):
 
     all_toys = toy_query.filter(queries)
 
-    return render(request, '/search.template.html', {
+    return render(request, 'toy/search.template.html', {
         'toys': all_toys,
         'search_form': search_form
     })
