@@ -10,9 +10,10 @@
     {%endif%}
 
     <h1>Toys</h1>
-    <p>
-        Here you can see all the toys that we have.
-    </p>
+    <form method="GET">
+        {{search_form|crispy}}
+        <input type="submit" value="Search" class="btn btn-primary"/>
+    </form>
     
 
 

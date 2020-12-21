@@ -46,3 +46,4 @@ class SearchForm(forms.Form):
     price = forms.ChoiceField(choices=price, label="",
                               initial='', widget=forms.Select(),
                               required=False)
+    search_terms = forms.CharField(required=False)
