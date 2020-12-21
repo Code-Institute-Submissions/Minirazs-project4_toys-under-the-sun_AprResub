@@ -10,10 +10,11 @@ from django.db.models import Q
 
 def index(request):
     toys = Toy.objects.all()
-    
+
     return render(request, 'toy/index.template.html', {
         'toys': toys
     })
+
 
 def search(request):
     # a query set that represents ALL the toys

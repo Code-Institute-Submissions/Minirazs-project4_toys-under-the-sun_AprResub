@@ -12,5 +12,5 @@ urlpatterns = [
          name='delete_toy_route'),
     path('<toy_id>', toy.views.one_toy,
          name='one_toy_route')
-
+    path('search/', toy.views.search)
 ]
