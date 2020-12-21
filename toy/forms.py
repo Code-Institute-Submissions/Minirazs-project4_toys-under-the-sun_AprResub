@@ -1,5 +1,6 @@
 from django import forms
 from .models import Toy
+from cloudinary.forms import CloudinaryJsFileField
 
 age = (
     ('0-2 years', '0-2 years'),
@@ -24,7 +25,9 @@ class ToyForm(forms.ModelForm):
     class Meta:
         model = Toy
         fields = ('title', 'brand', 'price', 'country', 'age', 'desc',
-                  'features')
+                  'features', 'cover')
+    
+    cover = CloudinaryJsFileField()
 
 
 class SearchForm(forms.Form):
