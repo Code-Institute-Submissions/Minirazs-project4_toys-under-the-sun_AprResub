@@ -31,6 +31,7 @@ class Toy(models.Model):
     age = models.CharField(choices=age, max_length=50, default='5-7 years')
     desc = models.TextField(blank=False, default='')
     features = models.TextField(blank=False, default='')
+    cover = CloudinaryField()
 
 # show the name in the database, make it into a string
     def __str__(self):
