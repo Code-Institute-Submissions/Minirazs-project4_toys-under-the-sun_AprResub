@@ -11,7 +11,7 @@ from django.db.models import Q
 def index(request):
     toys = Toy.objects.all()
 
-    return render(request, 'toy/display_toys.template.html', {
+    return render(request, 'toy/index.template.html', {
         'toys': toys
     })
 
