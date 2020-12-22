@@ -30,16 +30,15 @@ def search(request):
     # check if the user has submitted anything
     if request.GET:
         # if the user has filled in the title
-        if 'title' in request.GET and request.GET['title']:
+        print(request.GET)
+        if 'title' in request.GET and request.GET['title'] and request.GET['title'] != "":
             queries = queries & Q(title__icontains=request.GET['title'])
 
         if 'age' in request.GET and request.GET['age']:
-            if request.GET['age'] != 'any':
-                queries = queries & Q(age__in=request.GET['age'])
+            queries = queries & Q(age=request.GET['age'])
 
         if 'country' in request.GET and request.GET['country']:
-            if request.GET['country'] != 'any':
-                queries = queries & Q(country__in=request.GET['country'])
+            queries = queries & Q(country=request.GET['country'])
 
     # sandbox
     # queries = queries & Q(title__icontains="rings")

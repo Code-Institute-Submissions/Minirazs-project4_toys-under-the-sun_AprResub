@@ -14,7 +14,7 @@
             <div class="card" style="max-width: 320px; height: 350px">
                 <div class="card_image">
                     <a href="{%url 'one_toy_route' toy_id=toy.id %}">
-                        <img src="{% cloudinary toy.cover %}" class="card-img-top thumbnail" alt="{{toy.title}}"/>
+                        {% cloudinary toy.cover width=200 height=120 crop="fill"%}
                     </a>
                 </div>
                 <div class="card-body">

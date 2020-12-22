@@ -5,12 +5,14 @@
 
 {%block content%}
     <h1>Create Toy</h1>
-
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form|crispy}}
-        <input type="Submit"/>
-    </form>
+    
+    <div id="form">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy}}
+            <input type="Submit"/>
+        </form>
+    </div>
 
     <div class="status">
       <h2>Status</h2>

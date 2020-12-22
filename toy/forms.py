@@ -2,18 +2,7 @@ from django import forms
 from .models import Toy
 from cloudinary.forms import CloudinaryJsFileField
 
-age = (
-    ('any', 'any'),
-    ('0-2 years', '0-2 years'),
-    ('3-4 years', '3-4 years'),
-    ('5-7 years', '5-7 years'),
-    ('8-11 years', '8-11 years'),
-    ('12-14 years', '12-14 years'),
-    ('14 years+', '14 years+')
-)
-
 country = (
-    ('any', 'any'),
     ('UK', 'UK'),
     ('US', 'US'),
     ('Europe', 'Europe'),
@@ -21,6 +10,15 @@ country = (
     ('Korea', 'Korea'),
     ('Japan', 'Japan'),
     ('SE Asia', 'SE Asia')
+)
+
+age = (
+    ('0-2 years', '0-2 years'),
+    ('3-4 years', '3-4 years'),
+    ('5-7 years', '5-7 years'),
+    ('8-11 years', '8-11 years'),
+    ('12-14 years', '12-14 years'),
+    ('14 years+', '14 years+')
 )
 
 
@@ -34,15 +32,12 @@ class ToyForm(forms.ModelForm):
 
 
 class SearchForm(forms.Form):
-    title = forms.CharField(
-        label="Search by name", initial="find a toy!",
-        max_length=100, required=False)
+    title = forms.CharField(label="Search by name",
+                            max_length=100, required=False)
 
-    country = forms.MultipleChoiceField(
-        required=False,
-        widget=forms.CheckboxSelectMultiple,
-        choices=country,
-    )
+    country = forms.ChoiceField(choices=country, label="Country of Origin",
+                                initial='', widget=forms.Select(),
+                                required=False)
 
     age = forms.MultipleChoiceField(
         required=False,
