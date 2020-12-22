@@ -3,6 +3,7 @@ from .models import Toy
 from cloudinary.forms import CloudinaryJsFileField
 
 age = (
+    ('any', 'any'),
     ('0-2 years', '0-2 years'),
     ('3-4 years', '3-4 years'),
     ('5-7 years', '5-7 years'),
@@ -12,6 +13,7 @@ age = (
 )
 
 country = (
+    ('any', 'any'),
     ('UK', 'UK'),
     ('US', 'US'),
     ('Europe', 'Europe'),

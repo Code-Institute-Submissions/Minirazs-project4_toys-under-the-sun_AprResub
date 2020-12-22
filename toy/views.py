@@ -34,12 +34,12 @@ def search(request):
             queries = queries & Q(title__icontains=request.GET['title'])
 
         if 'age' in request.GET and request.GET['age']:
-            queries = queries & Q(age=request.GET['age'])
+            if request.GET['age'] != 'any':
+                queries = queries & Q(age=request.GET['age'])
 
         if 'country' in request.GET and request.GET['country']:
-            queries = queries & Q(country=request.GET['country'])
-
-       
+            if request.GET['country'] != 'any':
+                queries = queries & Q(country=request.GET['country'])
 
     # sandbox
     # queries = queries & Q(title__icontains="rings")
