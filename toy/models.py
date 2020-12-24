@@ -20,6 +20,15 @@ age = (
     ('14 years+', '14 years+')
 )
 
+category = (
+    ('Baby and Toddler toys', 'Baby and Toddler toys'),
+    ('Action figure and Dolls', 'Action figures and Dolls'),
+    ('Stuff toys', 'Stuff toys'),
+    ('Craft and activities', 'Craft and activities'),
+    ('Learning toys', 'Learning toys'),
+    ('Electronics', 'Electronics')
+)
+
 # Create your models here.
 
 
@@ -29,6 +38,8 @@ class Toy(models.Model):
     price = models.FloatField(blank=False, default='')
     country = models.CharField(choices=country, max_length=50, default='China')
     age = models.CharField(choices=age, max_length=50, default='5-7 years')
+    category = models.CharField(choices=category, max_length=50,
+                                default='Learning toys')
     desc = models.TextField(blank=False, default='')
     features = models.TextField(blank=False, default='')
     cover = CloudinaryField()
