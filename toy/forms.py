@@ -21,6 +21,14 @@ age = (
     ('14 years+', '14 years+')
 )
 
+category = (
+    ('Baby and Toddler toys', 'Baby and Toddler toys'),
+    ('Action figure and Dolls', 'Action figures and Dolls'),
+    ('Stuff toys', 'Stuff toys'),
+    ('Craft and activities', 'Craft and activities'),
+    ('Learning toys', 'Learning toys'),
+    ('Electronics', 'Electronics')
+)
 
 class ToyForm(forms.ModelForm):
     class Meta:
@@ -35,12 +43,20 @@ class SearchForm(forms.Form):
     title = forms.CharField(label="Search by name",
                             max_length=100, required=False)
 
-    country = forms.ChoiceField(choices=country, label="Country of Origin",
-                                initial='', widget=forms.Select(),
-                                required=False)
+    category = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=category,
+    )
 
     age = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=age,
+    )
+    
+    country = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=country,
     )

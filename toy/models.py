@@ -40,7 +40,7 @@ class Toy(models.Model):
     country = models.CharField(choices=country, max_length=50, default='')
     age = models.CharField(choices=age, max_length=50, default='')
     category = models.CharField(choices=category, max_length=50,
-                                default='Learning toys')
+                                default='')
     desc = models.TextField(blank=False, default='')
     features = models.TextField(blank=False, default='')
     cover = CloudinaryField()
