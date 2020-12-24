@@ -65,7 +65,6 @@ def update_quantity(request, toy_id):
     if toy_id in cart:
         cart[toy_id]['qty'] = request.POST['qty']
         request.session['shopping_cart'] = cart
-        messages.success(
-            request, f"Quantity for {cart[toy_id]['title']} has been changed")
-
+        messages.success(request, f"Quantity for {cart[toy_id]['title']} has been changed")
+    
     return redirect(reverse('view_cart_route'))
