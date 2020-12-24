@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404, reverse, HttpResponse
 from django.conf import settings
 from django.contrib.sites.models import Site
-from django.views.decorators.csrf import csrf_exempt
 from toy.models import Toy
 import stripe
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
+
 
 def checkout(request):
     # set the api keys for stripe to work
@@ -28,7 +29,7 @@ def checkout(request):
         # for the line item, each key in the dictionary is prefixed by Stripes
         item = {
             "name": toy_model.title,
-            "amount": toy_model.price,
+            "amount": int(toy_model.price/100),
             "quantity": cart_item['qty'],
             "currency": 'usd'
         }
@@ -76,6 +77,7 @@ def payment_completed(request):
     payload = request.body
     # retrieve the signature
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
 
     try:
         event = stripe.Webhook.construct_event(
