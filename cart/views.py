@@ -40,7 +40,7 @@ def view_cart(request):
     # retrieve the cart
     cart = request.session.get('shopping_cart', {})
 
-    return render(request, 'view_cart.template.html', {
+    return render(request, 'cart/view_cart.template.html', {
         'shopping_cart': cart
     })
 

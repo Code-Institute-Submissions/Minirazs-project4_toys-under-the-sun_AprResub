@@ -35,7 +35,7 @@ def search(request):
             queries = queries & Q(title__icontains=request.GET['title'])
 
         if 'age' in request.GET and request.GET['age']:
-            queries = queries & Q(age__in=request.GET['age'].getlist())
+            queries = queries & Q(age__in=request.GET.getlist('age'))
 
         if 'country' in request.GET and request.GET['country']:
             queries = queries & Q(country=request.GET['country'])
