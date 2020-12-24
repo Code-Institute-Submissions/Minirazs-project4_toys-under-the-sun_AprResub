@@ -21,7 +21,7 @@ def add_to_cart(request, toy_id):
         cart[toy_id] = {
             'id': toy_id,
             'title': toy.title,
-            'price': float(toy.price),
+            'price': float(toy.price/100),
             'qty': 1
         }
 
