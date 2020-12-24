@@ -3,13 +3,13 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from toy.models import Toy
-from .models import Cart
 from django.db.models import Q
 
 # Create your views here.
 
 
 def index(request):
+    return render(request, 'index.template.html')
 
 
 def add_to_cart(request, toy_id):
@@ -33,8 +33,8 @@ def add_to_cart(request, toy_id):
         request.session['shopping_cart'] = cart
 
         messages.success(request, "Toy has been added to your cart!")
-        return redirect(reverse('toy.views.index'))
+        return redirect(reverse('show_toy_route'))
     else:
-        cart[book_id]['qty'] += 1
+        cart[toy_id]['qty'] += 1
         request.session['shopping_cart'] = cart
-        return redirect(reverse('book.views.index'))
+        return redirect(reverse('show_toy_route'))
