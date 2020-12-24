@@ -31,7 +31,7 @@ def checkout(request):
             "name": toy_model.title,
             "amount": int(toy_model.price/100),
             "quantity": cart_item['qty'],
-            "currency": 'usd'
+            "currency": 'sgd'
         }
 
         line_items.append(item)
