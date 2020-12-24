@@ -21,14 +21,14 @@ def add_to_cart(request, toy_id):
         cart[toy_id] = {
             'id': toy_id,
             'title': toy.title,
-            'price': toy.price,
+            'price': float(toy.price),
             'qty': 1
         }
 
         # save the cart back to sessions
         request.session['shopping_cart'] = cart
 
-        messages.success(request, "Toy has been added to your cart!")
+        messages.success(request, f"{toy.title} has been added to your cart!")
         return redirect(reverse('show_toy_route'))
     else:
         cart[toy_id]['qty'] += 1
@@ -58,3 +58,14 @@ def remove_from_cart(request, toy_id):
         messages.success(request, "Item removed from cart successfully!")
 
     return redirect(reverse('show_toy_route'))
+
+
+def update_quantity(request, toy_id):
+    cart = request.session.get('shopping_cart')
+    if toy_id in cart:
+        cart[toy_id]['qty'] = request.POST['qty']
+        request.session['shopping_cart'] = cart
+        messages.success(
+            request, f"Quantity for {cart[toy_id]['title']} has been changed")
+
+    return redirect(reverse('view_cart_route'))
