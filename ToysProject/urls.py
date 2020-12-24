@@ -29,5 +29,8 @@ urlpatterns = [
     path('order/', include('order.urls')),
 
     # cart urls
-    path('cart/', include('cart.urls'))
+    path('cart/', include('cart.urls')),
+
+    # checkout urls
+    path('checkout/', include('checkout.urls'))
 ]
