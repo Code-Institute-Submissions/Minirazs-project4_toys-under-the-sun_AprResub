@@ -35,7 +35,8 @@ category = (
 class Toy(models.Model):
     title = models.CharField(blank=False, max_length=100, default='')
     brand = models.CharField(blank=False, max_length=50, default='')
-    price = models.FloatField(blank=False, default='')
+    price = models.DecimalField(max_digits=10, decimal_places=3,
+                                default='', blank=False)
     country = models.CharField(choices=country, max_length=50, default='China')
     age = models.CharField(choices=age, max_length=50, default='5-7 years')
     category = models.CharField(choices=category, max_length=50,

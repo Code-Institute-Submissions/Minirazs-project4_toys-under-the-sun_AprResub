@@ -43,3 +43,18 @@ def view_cart(request):
     return render(request, 'view_cart.template.html', {
         'shopping_cart': cart
     })
+
+
+def remove_from_cart(request, toy_id):
+    # retrieve the cart from session
+    cart = request.session.get('shopping_cart', {})
+
+    # if the book is in the cart
+    if toy_id in cart:
+        # remove it from the cart
+        del cart[toy_id]
+        # save back to the session
+        request.session['shopping_cart'] = cart
+        messages.success(request, "Item removed from cart successfully!")
+
+    return redirect(reverse('show_toy_route'))
