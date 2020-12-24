@@ -50,12 +50,14 @@ class SearchForm(forms.Form):
     )
 
     age = forms.MultipleChoiceField(
+        label="Age Group",
         required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=age,
     )
     
     country = forms.MultipleChoiceField(
+        label="Country of Origin",
         required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=country,
