@@ -26,5 +26,8 @@ urlpatterns = [
     path('review/', include('review.urls')),
     
     # order urls
-    path('order/', include('order.urls'))
+    path('order/', include('order.urls')),
+
+    # cart urls
+    path('cart/', include('cart.urls'))
 ]
