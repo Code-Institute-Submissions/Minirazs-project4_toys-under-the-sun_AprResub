@@ -22,6 +22,7 @@ def index(request):
 def search(request):
     # a query set that represents ALL the toys
     toy_query = Toy.objects.all()
+    
     search_form = SearchForm()
 
     # create an empty query  -- represents ALWAYS TRUE
@@ -47,6 +48,9 @@ def search(request):
 
     all_toys = toy_query.filter(queries)
 
+    for i in all_toys:
+        i.price = float(i.price/100)
+
     return render(request, 'toy/search.template.html', {
         'toys': all_toys,
         'search_form': search_form
@@ -58,6 +62,8 @@ def search(request):
 
 def one_toy(request, toy_id):
     toy = get_object_or_404(Toy, pk=toy_id)
+
+    toy.price = toy.price/100
 
     return render(request, 'toy/one_toy.template.html', {
         'toy': toy
