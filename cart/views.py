@@ -8,10 +8,6 @@ from django.db.models import Q
 # Create your views here.
 
 
-def index(request):
-    return render(request, 'index.template.html')
-
-
 def add_to_cart(request, toy_id):
     # attempt to get existing cart from the session using the key "shopping_cart"
     # the second argument will be the default value if
@@ -25,7 +21,7 @@ def add_to_cart(request, toy_id):
         cart[toy_id] = {
             'id': toy_id,
             'title': toy.title,
-            'price': 99,
+            'price': toy.price,
             'qty': 1
         }
 
@@ -38,3 +34,12 @@ def add_to_cart(request, toy_id):
         cart[toy_id]['qty'] += 1
         request.session['shopping_cart'] = cart
         return redirect(reverse('show_toy_route'))
+
+
+def view_cart(request):
+    # retrieve the cart
+    cart = request.session.get('shopping_cart', {})
+
+    return render(request, 'view_cart.template.html', {
+        'shopping_cart': cart
+    })
