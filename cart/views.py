@@ -7,7 +7,7 @@ from django.db.models import Q
 
 # Create your views here.
 
-
+@login_required
 def add_to_cart(request, toy_id):
     # attempt to get existing cart from the session using the key "shopping_cart"
     # the second argument will be the default value if
@@ -36,6 +36,7 @@ def add_to_cart(request, toy_id):
         return redirect(reverse('show_toy_route'))
 
 
+@login_required
 def view_cart(request):
     # retrieve the cart
     cart = request.session.get('shopping_cart', {})
@@ -45,6 +46,7 @@ def view_cart(request):
     })
 
 
+@login_required
 def remove_from_cart(request, toy_id):
     # retrieve the cart from session
     cart = request.session.get('shopping_cart', {})
@@ -60,11 +62,13 @@ def remove_from_cart(request, toy_id):
     return redirect(reverse('show_toy_route'))
 
 
+@login_required
 def update_quantity(request, toy_id):
     cart = request.session.get('shopping_cart')
     if toy_id in cart:
         cart[toy_id]['qty'] = request.POST['qty']
         request.session['shopping_cart'] = cart
-        messages.success(request, f"Quantity for {cart[toy_id]['title']} has been changed")
-    
+        messages.success(
+            request, f"Quantity for {cart[toy_id]['title']} has been changed")
+
     return redirect(reverse('view_cart_route'))
