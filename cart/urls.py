@@ -10,5 +10,5 @@ urlpatterns = [
          name='remove_from_cart'),
     path('update_quantity/<toy_id>',
          cart.views.update_quantity,
-         name='update_cart_quantity_route')
+         name='update_cart_quantity')
 ]
