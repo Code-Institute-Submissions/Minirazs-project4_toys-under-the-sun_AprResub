@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, HttpResponse
 from django.conf import settings
 from django.contrib.sites.models import Site
+from django.contrib.auth.models import User
 from toy.models import Toy
 from .models import Purchase
 import stripe
@@ -101,10 +102,27 @@ def payment_completed(request):
         session = event['data']['object']
         handle_payment(session)
 
-    print(request.body)
-
     return HttpResponse(status=200)
 
 
 def handle_payment(session):
     print(session)
+
+    metadata = session['metadata']
+    all_toy_ids = json.loads(metadata['all_toy_ids'])
+    print(all_toy_ids)
+
+    user = get_object_or_404(User, pk=session['client_reference_id'])
+
+    # go through each toy id
+    for toy_ordered in all_toy_ids:
+        toy_model = get_object_or_404(Toy, pk=toy_ordered['toy_id'])
+
+        # create the purchase model
+        purchase = Purchase()
+        purchase.toy = toy_model
+        purchase.user = user
+        purchase.qty = toy_ordered['qty']
+        purchase.price = toy_model.price
+        # save the model
+        purchase.save()
