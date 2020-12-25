@@ -29,7 +29,7 @@ def checkout(request):
         # for the line item, each key in the dictionary is prefixed by Stripes
         item = {
             "name": toy_model.title,
-            "amount": int(toy_model.price/100),
+            "amount": int(toy_model.price),
             "quantity": cart_item['qty'],
             "currency": 'sgd'
         }
