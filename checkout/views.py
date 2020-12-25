@@ -2,9 +2,12 @@ from django.shortcuts import render, get_object_or_404, reverse, HttpResponse
 from django.conf import settings
 from django.contrib.sites.models import Site
 from toy.models import Toy
+from .models import Purchase
 import stripe
 import json
 from django.views.decorators.csrf import csrf_exempt
+
+endpoint_secret = "whsec_Rq8GGBriVWDZ5HJ4AerkPnNJ1LnnnNyU"
 
 # Create your views here.
 
@@ -102,3 +105,19 @@ def payment_completed(request):
 
 def handle_payment(session):
     print(session)
+    user = get_object_or_404(User, pk=session["client_reference_id"])
+
+
+    # change the metadata from string back to array
+    all_toy_ids = session["metadata"]["all_toy_ids"].split(",")
+
+
+    # go through each toy id
+    for toy_id in all_toy_ids:
+        toy_model = get_object_or_404(Toy, pk=toy_id)
+
+        # create the purchase model
+        purchase = Purchase()
+        purchase.toy_id = toy_model
+        purchase.user_id = user
+        purchase.save()
