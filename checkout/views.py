@@ -76,19 +76,18 @@ def checkout_cancelled(request):
 
 @csrf_exempt
 def payment_completed(request):
-    # 1. verify that the data is actually sent by Stripe
+
     endpoint_secret = settings.ENDPOINT_SECRET
     payload = request.body
-    print(request.body)
 
-    # retrieve the signature
+    # retrieve the signature sent from Stripe
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
-    event = None
 
     try:
         event = stripe.Webhook.construct_event(
             payload, sig_header, endpoint_secret
         )
+
     except ValueError as e:
         # Invalid payload
         print("Invalid payload")
@@ -98,29 +97,14 @@ def payment_completed(request):
         print("Invalid signature")
         return HttpResponse(status=400)
 
-    # 2. process the order
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         handle_payment(session)
+
+    print(request.body)
 
     return HttpResponse(status=200)
 
 
 def handle_payment(session):
     print(session)
-    user = get_object_or_404(User, pk=session["client_reference_id"])
-
-
-    # change the metadata from string back to array
-    all_toy_ids = session["metadata"]["all_toy_ids"].split(",")
-
-
-    # go through each toy id
-    for toy_id in all_toy_ids:
-        toy_model = get_object_or_404(Toy, pk=toy_id)
-
-        # create the purchase model
-        purchase = Purchase()
-        purchase.toy_id = toy_model
-        purchase.user_id = user
-        purchase.save()
