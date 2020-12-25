@@ -66,6 +66,9 @@ def checkout(request):
 
 
 def checkout_success(request):
+    # Empty the shopping cart
+    request.session['shopping_cart'] = {}
+
     return HttpResponse("Payment completed successfully")
 
 
@@ -78,6 +81,8 @@ def payment_completed(request):
     # 1. verify that the data is actually sent by Stripe
     endpoint_secret = settings.ENDPOINT_SECRET
     payload = request.body
+    print(payload)
+
     # retrieve the signature
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
