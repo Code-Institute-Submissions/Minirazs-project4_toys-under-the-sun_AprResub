@@ -7,8 +7,6 @@ import stripe
 import json
 from django.views.decorators.csrf import csrf_exempt
 
-endpoint_secret = "whsec_Rq8GGBriVWDZ5HJ4AerkPnNJ1LnnnNyU"
-
 # Create your views here.
 
 
@@ -81,7 +79,7 @@ def payment_completed(request):
     # 1. verify that the data is actually sent by Stripe
     endpoint_secret = settings.ENDPOINT_SECRET
     payload = request.body
-    print(payload)
+    print(request.body)
 
     # retrieve the signature
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
