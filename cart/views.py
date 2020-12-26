@@ -22,7 +22,8 @@ def add_to_cart(request, toy_id):
             'id': toy_id,
             'title': toy.title,
             'price': float(toy.price/100),
-            'qty': 1
+            'qty': 1,
+            'cover': str(toy.cover)
         }
 
         # save the cart back to sessions
