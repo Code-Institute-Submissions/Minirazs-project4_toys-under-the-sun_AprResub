@@ -65,6 +65,7 @@ def search(request):
 
 def one_toy(request, toy_id):
     toy = get_object_or_404(Toy, pk=toy_id)
+    print(toy.cover.url)
 
     toy.price = float(toy.price/100)
 
