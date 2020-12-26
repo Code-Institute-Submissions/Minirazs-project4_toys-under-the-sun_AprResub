@@ -42,10 +42,9 @@ def create_review(request, toy_id):
 
 
 @login_required
-def update_review(request, toy_id, review_id):
+def update_review(request, review_id):
     # 1. retrieve the review which we are editing
     review_being_updated = get_object_or_404(Review, pk=review_id)
-    toy = get_object_or_404(Toy, pk=toy_id)
 
     # 2 - create the form and fill it with data from review instance
     if request.method == "POST":
@@ -60,7 +59,7 @@ def update_review(request, toy_id, review_id):
         else:
             return render(request, 'review/update.template.html', {
                 "form": review_form,
-                'toy': toy
+                "review": review_being_updated 
             })
     else:
         # 4. create a form with the review details filled in
@@ -68,7 +67,7 @@ def update_review(request, toy_id, review_id):
 
         return render(request, 'review/update.template.html', {
             "form": review_form,
-            'toy': toy
+            "review": review_being_updated 
         })
 
 

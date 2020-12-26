@@ -6,6 +6,7 @@
 {%block content%}
     <h1>Create Review</h1>
      {% cloudinary toy.cover width=200 height=120 crop="fill"%}
+     <h2>{{toy.title}}</h2> 
     <form method="POST">
     {% csrf_token %}
     {{ form|crispy}}
