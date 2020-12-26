@@ -27,7 +27,7 @@ SECRET_KEY = '!e_smdr9tpx(ciahjo2m)3#31d!&0y(kau9!3-7+@atpz_exqc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*", "toysunderthesun.herokuapp.com"]
 
 
 # Application definition
@@ -162,6 +162,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
