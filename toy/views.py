@@ -39,7 +39,10 @@ def search(request):
             queries = queries & Q(age__in=request.GET.getlist('age'))
 
         if 'country' in request.GET and request.GET['country']:
-            queries = queries & Q(country=request.GET['country'])
+            queries = queries & Q(country__in=request.GET.getlist('country'))
+
+        if 'category' in request.GET and request.GET['category']:
+            queries = queries & Q(category__in=request.GET.getlist('category'))
 
     # sandbox
     # queries = queries & Q(title__icontains="rings")
