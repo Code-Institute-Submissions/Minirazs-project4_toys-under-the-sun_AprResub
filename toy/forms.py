@@ -32,8 +32,8 @@ category = (
 class ToyForm(forms.ModelForm):
     class Meta:
         model = Toy
-        fields = ('title', 'brand', 'price', 'country', 'age', 'desc',
-                  'features', 'cover')
+        fields = ('title', 'brand', 'price', 'country', 'age', 'category',
+                  'desc', 'features', 'cover')
 
     cover = CloudinaryJsFileField()
 
