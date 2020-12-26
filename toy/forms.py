@@ -3,9 +3,8 @@ from .models import Toy
 from cloudinary.forms import CloudinaryJsFileField
 
 country = (
-    ('UK', 'UK'),
-    ('US', 'US'),
-    ('Europe', 'Europe'),
+    ('UK & Europe', 'UK & Europe'),
+    ('US & Canada', 'US & Canada'),
     ('China', 'China'),
     ('Korea', 'Korea'),
     ('Japan', 'Japan'),
