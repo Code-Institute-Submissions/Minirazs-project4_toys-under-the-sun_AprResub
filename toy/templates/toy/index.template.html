@@ -6,6 +6,9 @@
     
     {% if request.user.is_authenticated  %}
     <p>Welcome {{request.user}}</p>
+        {% if request.user.is_superuser %}
+            <a href="{% url 'create_toy_route' %}" class="btn btn-primary btn-sm">Add New Toy</a>
+        {% endif %}
     {% else %}
     <p>Please <a href="/accounts/login">Login</a></p>
     {%endif%}
