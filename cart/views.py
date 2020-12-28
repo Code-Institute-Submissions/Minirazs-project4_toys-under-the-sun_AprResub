@@ -25,6 +25,7 @@ def add_to_cart(request, toy_id):
             'price': float(toy.price/100),
             'qty': 1,
             'cover': str(toy.cover),
+            # calculate subtotal of the toy
             'total': float(toy.price/100)
         }
 
@@ -48,9 +49,9 @@ def view_cart(request):
     # retrieve the cart
     cart = request.session.get('shopping_cart', {})
     grand_total = 0
-
-    for key, value in cart.items():
-        grand_total += float(value['price'] * value['qty'])
+    print(cart)
+    for k, v in cart.items():
+        grand_total += v['total']
 
     return render(request, 'cart/view_cart.template.html', {
         'cart': cart,
@@ -78,9 +79,25 @@ def remove_from_cart(request, toy_id):
 def update_quantity(request, toy_id):
     cart = request.session.get('shopping_cart')
     if toy_id in cart:
+        # update quantity
         cart[toy_id]['qty'] = request.POST['qty']
-        request.session['shopping_cart'] = cart
-        messages.success(
-            request, f"Quantity for {cart[toy_id]['title']} has been changed")
 
-    return redirect(reverse('view_cart_route'))
+        # update cart subtotal
+        cart[toy_id]['total'] = int(
+            cart[toy_id]['qty']) * float(cart[toy_id]['price'])
+
+    # Tally grand total
+    print(cart)
+    grand_total = 0
+    for k, v in cart.items():
+        grand_total += v['total']
+
+    # Save session
+    request.session['shopping_cart'] = cart
+    messages.success(
+        request, f"Quantity for {cart[toy_id]['title']} has been changed")
+
+    return render(request, 'cart/view_cart.template.html', {
+        'cart': cart,
+        'grand_total': grand_total
+    })
