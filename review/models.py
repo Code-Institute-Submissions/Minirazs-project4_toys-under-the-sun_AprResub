@@ -18,7 +18,7 @@ class Review(models.Model):
     toy = models.ForeignKey(Toy, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.IntegerField(choices=rating, default=3)
-    desc = models.TextField(blank=False, default=' ')
+    review = models.TextField(blank=False, default=' ')
     # if no date is provided, use the current date on the server
     date = models.DateField(auto_now=True)
 

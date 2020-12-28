@@ -6,7 +6,7 @@
     <div class="card" style="width: 18rem">
       <div class="card-body">
         <h5 class="card-title"><a href="{% url 'one_toy_route' toy_id=each_review.toy.id %}">{{each_review.toy}}</a></h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{each_review.rating}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Rated {{each_review.rating}} stars!</h6>
         <p class="card-text">
             {{each_review.desc}}
         </p>
