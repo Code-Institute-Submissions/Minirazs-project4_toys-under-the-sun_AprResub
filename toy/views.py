@@ -10,7 +10,7 @@ from django.db.models import Q
 
 
 def redirect_view(request):
-    response = redirect('/toy/')
+    response = redirect('/toy/search/')
     return response
 
 
