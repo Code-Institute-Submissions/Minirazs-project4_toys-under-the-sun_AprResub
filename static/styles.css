@@ -1,6 +1,7 @@
 body {
     background-image: url("https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     background-repeat: repeat;
+    font-family: 'Caveat', cursive;
 }
 
 h1, h2, h3 {
@@ -8,7 +9,7 @@ h1, h2, h3 {
 }
 
 p {
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Caveat', cursive;
 }
 
 .card {
