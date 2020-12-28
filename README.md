@@ -129,7 +129,7 @@ Technologies Used
 
 The ER diagram of this project:
 
-![](img/project4\_ERdiagram.jpg)
+![](img/project4_ERdiagram.jpg)
 
 ## Testing
 
@@ -187,11 +187,6 @@ _Issues with User email verification_
 
 Also, when app is deployed to Django, the user signing up for a new account. The site says verification email is sent to the user&#39;s email. However, there is no actual email sent despite multiple attempts. In the Django Admin panel under Users, this new user has been registered.
 
-![](RackMultipart20201228-4-5tpvcx_html_7b84833cf28f7fa.png)
-
-![](RackMultipart20201228-4-5tpvcx_html_40324c3507943137.png)
-
-![](RackMultipart20201228-4-5tpvcx_html_c47301a8bd3371ca.png)
 
 _Issues with Product Editing page and Cloudinary image uploader_
 
@@ -231,15 +226,15 @@ Log into [Heroku](https://id.heroku.com/login) dashboard, go to settings and set
 
 ## Credits 
 
-Tools &amp; Tech used
+_Tools &amp; Tech used_
 
 Special thanks to the developers and tech creators for sharing freely their code and tools that are used in this site creation. 🤗🙌 They are listed in the Technologies section above.
 
-Certain Django &amp; Heroku Deployment steps
+_Certain Django &amp; Heroku Deployment steps_
 
 Special thanks and credit to instructor [Paul Chor](https://github.com/kunxin-chor) for providing the Django code to some parts of the website (including cart and checkout) and the deployment steps that are shown above.
 
-Images, Content &amp; Logo 📷
+_Images, Content &amp; Logo 📷_
 
 - All product content including description, images and prices etc. are taken from [Toy&#39;r&#39;us.com](https://www.toysrus.com.sg/) and copyrights belong to every toy&#39;s respective brand
 - Background image of the sky from [Pexel.com](https://www.pexels.com/)
