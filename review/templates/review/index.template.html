@@ -1,25 +1,31 @@
 {% extends 'base.template.html' %}
 
 {% block content %}
-    <h1>Reviews</h1>
+<h1>Reviews</h1>
+<div class = "display_cards">
     {% for each_review in reviews %}
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title"><a href="{% url 'one_toy_route' toy_id=each_review.toy.id %}">{{each_review.toy}}</a></h5>
-        <h6 class="card-subtitle mb-2 text-muted">Rated {{each_review.rating}} stars!</h6>
-        <p class="card-text">
-            {{each_review.desc}}
-        </p>
-        <p>
-            Posted by: {{each_review.user}}
-        </p>
-        <p>
-            Posted on: {{each_review.date}}
-        </p>
-        {% if each_review.user == request.user %}
-            <a href="{% url 'update_review_route' review_id=each_review.id %}" class="btn btn-primary btn-sm">Edit</a>
-            <a href="{% url 'delete_review_route' review_id=each_review.id %}" class="btn btn-primary btn-sm">Delete</a>
-        {% endif %}
-      </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <a href="{% url 'one_toy_route' toy_id=each_review.toy.id %}"><h5>{{each_review.toy}}</h5></a>
+                </div>
+                <h6 class="card-subtitle mb-2 text-muted">Rated {{each_review.rating}} stars!</h6>
+                <p class="card-text">
+                    {{each_review.review}}
+                </p>
+                <p>
+                    Posted by: {{each_review.user}}
+                </p>
+                <p>
+                    Posted on: {{each_review.date}}
+                </p>
+                {% if each_review.user == request.user %}
+                    <a href="{% url 'update_review_route' review_id=each_review.id %}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{% url 'delete_review_route' review_id=each_review.id %}" class="btn btn-primary btn-sm">Delete</a>
+                {% endif %}
+            </div>
+        </div>
       {% endfor %}
+    
+</div>
 {%endblock%}

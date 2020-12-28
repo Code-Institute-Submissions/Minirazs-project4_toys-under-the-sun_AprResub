@@ -48,7 +48,7 @@
                         <h5 class="card-title">{{review.rating}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{review.user}}</h6>
                         <h6 class="card-subtitle mb-2 text-muted">{{review.date}}</h6>
-                        <p class="card-text">{{review.desc}}</p>
+                        <p class="card-text">{{review.review}}</p>
                         {% if review.user == request.user %}
                             <a href="{% url 'update_review_route' review_id=review.id %}" class="btn btn-primary btn-sm">Edit</a>
                             <a href="{% url 'delete_review_route' review_id=review.id %}" class="btn btn-primary btn-sm">Delete</a>

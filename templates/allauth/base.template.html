@@ -81,6 +81,67 @@
       {%block content%}{%endblock%}
     </div>
 
+    <!-- Footer -->
+    <footer class="page-footer font-small red pt-4" id="base-footer">
+      <!-- Footer Links -->
+      <div class="container-fluid text-center">
+        <!-- Grid row -->
+        <div class="row">
+          <!-- Grid column -->
+          <div class="col-md-6 mt-md-0 mt-3">
+            <!-- Content -->
+            <h5 class="text-uppercase">
+              Have you found a Toy you like?
+            </h5>
+            <h6>
+              Welcome to Toys under the sun!
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none pb-3" />
+
+          <!-- Grid column -->
+          <div class="col-md-6 mb-md-0 mb-6">
+            <!-- Links -->
+            <h5 class="text-uppercase">Explore the site</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="{%url 'show_toy_route' %}" class="footer-links"
+                  >Toys</a
+                >
+              </li>
+              <li>
+                <a href="{%url 'show_review_route' %}" class="footer-links"
+                  >Review</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{%url 'view_cart_route' %}"
+                  class="footer-links"
+                  >Cart</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">
+        © 2020 Copyright
+        <a
+          href="https://github.com/Minirazs"
+          target="_blank"
+          class="footer-links"
+          ><i id="git-icon" class="fab fa-github"></i> Designed by Foo Rui
+          Shan</a
+        >
+      </div>
+    </footer>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script

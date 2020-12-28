@@ -44,11 +44,15 @@ p, a {
     margin: 20px;
 }
 
-#display_toys {
+.display_cards {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-
+/* Footer */
+#base-footer {
+  background-color:white;
+  margin-top: 50px;
+}
