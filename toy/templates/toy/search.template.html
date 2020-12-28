@@ -11,7 +11,7 @@
 
     <div class="display_cards">  
         {%for toy in toys %}
-            <div class="card">
+            <div class="card" style="width: 500px; height: 350px; margin: 20px;">
                 <div class="card_image">
                     <a href="{%url 'one_toy_route' toy_id=toy.id %}">
                         {% cloudinary toy.cover width=200 height=120 crop="fill"%}
