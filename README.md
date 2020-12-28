@@ -33,7 +33,7 @@ Sans-serif font, Quicksand, which allows easy reading of chunky text.
 
 _Wireframe_
 
-The wireframe for the home page can be found here. The overall idea is to make the web application user-friendly and intuitive to navigate:
+The [wireframe for the home page can be found here.](https://github.com/Minirazs/project4_toys-under-the-sun/blob/master/static/img/wireframe.JPG) The overall idea is to make the web application user-friendly and intuitive to navigate:
 
 1. Navbar on top with all the links related to the products (Toys) and product reviews on the left, and links related to the user and shopping cart on the right.
 2. The middle section of the site will show the advanced search criteria and/ or to display the search results or entries.
@@ -127,8 +127,7 @@ Technologies Used
 
 ## Database Design
 
-The [ER diagram of this project can be viewed here.](https://github.com/Minirazs/project4_toys-under-the-sun/blob/master/static/img/project4_ERdiagram.JPG)
-
+The [ER diagram of this project can be found here](https://github.com/Minirazs/project4_toys-under-the-sun/blob/master/static/img/project4_ERdiagram.JPG).
 ## Testing
 
 Before deployment to Heroku, the manual testing is done using the browser&#39;s Inspect tool and 8080 server to preview the site ensures that the site is mobile responsive and all content, such as buttons and links, are linked correctly and displayed on different screen sizes, namely mobile (below 480px), tablet (between 768px to 1024px) and laptop (above 1024px):
