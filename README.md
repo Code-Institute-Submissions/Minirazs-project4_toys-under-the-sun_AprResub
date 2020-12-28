@@ -127,9 +127,7 @@ Technologies Used
 
 ## Database Design
 
-The ER diagram of this project:
-
-![](img/project4_ERdiagram.jpg)
+The [ER diagram of this project can be viewed here.](https://github.com/Minirazs/project4_toys-under-the-sun/blob/master/static/img/project4_ERdiagram.JPG)
 
 ## Testing
 
