@@ -40,7 +40,7 @@
             <h2>Leave a Review</h2>
             <a href="{% url 'create_review_route' toy_id=toy.id %}" class="btn btn-primary spacing">Write Review</a>
         </div>
-        <div class="row">
+        <div class="row" id="review_display">
             {%for review in toy.review_set.all %}
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
