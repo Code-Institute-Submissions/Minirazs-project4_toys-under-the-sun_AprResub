@@ -1,7 +1,15 @@
 body {
-    background-color: white;
+    background-image: url("https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-repeat: repeat;
 }
 
+h1, h2, h3 {
+    font-family: 'Bangers', cursive;
+}
+
+p {
+    font-family: 'Patrick Hand', cursive;
+}
 
 .card {
     display: flex;
