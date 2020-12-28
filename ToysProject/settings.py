@@ -104,7 +104,9 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 # login page
 LOGIN_URL = '/accounts/login/'
 # the URL where user is routed after login
-LOGIN_REDIRECT_URL = '/success'
+LOGIN_REDIRECT_URL = '/toy'
+# the URL where user is routed after logout
+ACCOUNT_LOGOUT_REDIRECT_URL = "/toy"
 
 TEST_EMAIL = os.environ.get("TEST_EMAIL")
 if TEST_EMAIL == "1":

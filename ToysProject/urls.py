@@ -21,10 +21,10 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     # toy urls
     path('toy/', include('toy.urls')),
-    
+
     # review urls
     path('review/', include('review.urls')),
-    
+
     # order urls
     path('order/', include('order.urls')),
 

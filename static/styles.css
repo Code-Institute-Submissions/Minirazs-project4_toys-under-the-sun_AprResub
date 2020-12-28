@@ -2,6 +2,7 @@ body {
     background-color: white;
 }
 
+
 .card {
     display: flex;
     width: 500px; 
@@ -15,4 +16,5 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 
