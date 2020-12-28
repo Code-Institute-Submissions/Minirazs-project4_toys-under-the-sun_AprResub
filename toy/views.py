@@ -9,6 +9,11 @@ from django.db.models import Q
 # Create your views here.
 
 
+def redirect_view(request):
+    response = redirect('/toy/')
+    return response
+
+
 def index(request):
     toys = Toy.objects.all()
     search_form = SearchForm()
@@ -22,7 +27,7 @@ def index(request):
 def search(request):
     # a query set that represents ALL the toys
     toy_query = Toy.objects.all()
-    
+
     search_form = SearchForm()
 
     # create an empty query  -- represents ALWAYS TRUE
