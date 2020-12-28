@@ -6,7 +6,8 @@ body {
     
 }
 
-h1, h2, h3 {
+/* Highlight text using cursive */
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Bangers', cursive;
 }
 
@@ -14,8 +15,9 @@ h1, h2, h3 {
     font-family: 'Caveat', cursive;
 }
 
-p {
-    font-family: 'Caveat', cursive;
+/* Text for heavy reading in sans-serif */
+p, a {
+    font-family: 'Quicksand', sans-serif;
 
 }
 
@@ -24,6 +26,17 @@ p {
     padding-left: 1rem;
 }
 
+.spacing {
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+/* the container background to read text clearly */
+.text_background {
+    background-color: white;
+}
+
+/* card styling design */
 .card {
     display: flex;
     width: 500px; 

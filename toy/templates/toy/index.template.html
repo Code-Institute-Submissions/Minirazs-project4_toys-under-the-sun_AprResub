@@ -13,7 +13,7 @@
     <p>Please <a href="/accounts/login">Login</a></p>
     {%endif%}
 
-    <h1>Toys</h1>
+    <h2>Search for your favourite toy!</h2>
     <form method="GET" action="{% url 'search_toy' %}">
         {{search_form|crispy}}
         <input type="submit" value="Search" class="btn btn-primary"/>

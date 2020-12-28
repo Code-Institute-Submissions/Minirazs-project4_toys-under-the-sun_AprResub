@@ -4,7 +4,7 @@
 {% load static %}
 
 {%block content%}
-    <div class="container">
+    <div class="container text_background">
         <div class="row">
             <h1>{{toy.title}}</h1>
         </div>
@@ -20,10 +20,10 @@
             {% cloudinary toy.cover width=500 height=500 crop="fill" %}
         </div>
         <div class="row">
-            {{toy.desc}}
+            <p>{{toy.desc}}</p>
         </div>
         <div class="row">
-            {{toy.features}}
+            <p>{{toy.features}}</p>
         </div>
         {% if request.user.is_superuser %}
         <div class="row">
@@ -37,7 +37,8 @@
         </div>
         <br>
         <div class="row">
-            <h2>Leave a Review for this Toy <a href="{% url 'create_review_route' toy_id=toy.id %}" class="btn btn-primary">Write Review</a></h2>
+            <h2>Leave a Review</h2>
+            <a href="{% url 'create_review_route' toy_id=toy.id %}" class="btn btn-primary spacing">Write Review</a>
         </div>
         <div class="row">
             {%for review in toy.review_set.all %}

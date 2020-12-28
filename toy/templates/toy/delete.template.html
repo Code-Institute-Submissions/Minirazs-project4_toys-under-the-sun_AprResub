@@ -6,7 +6,7 @@
     <form method="POST">
         {% csrf_token %}
         {{ form|crispy}}
-        <input type="submit" value="Yes"/>
-        <a href="{% url 'show_toy_route' %}">No</a>
+        <input type="submit" value="Yes" class="btn btn-danger"/>
+        <a href="{% url 'show_toy_route' %}" class="btn btn-warning">No</a>
     </form>
 {%endblock%}
