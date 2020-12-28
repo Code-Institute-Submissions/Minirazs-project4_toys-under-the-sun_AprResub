@@ -124,5 +124,6 @@ def handle_payment(session):
         purchase.user = user
         purchase.qty = toy_ordered['qty']
         purchase.price = toy_model.price
+    
         # save the model
         purchase.save()

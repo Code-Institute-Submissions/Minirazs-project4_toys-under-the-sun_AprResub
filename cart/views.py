@@ -7,6 +7,7 @@ from django.db.models import Q
 
 # Create your views here.
 
+
 @login_required
 def add_to_cart(request, toy_id):
     # attempt to get existing cart from the session using the key "shopping_cart"
@@ -23,7 +24,8 @@ def add_to_cart(request, toy_id):
             'title': toy.title,
             'price': float(toy.price/100),
             'qty': 1,
-            'cover': str(toy.cover)
+            'cover': str(toy.cover),
+            'total': float(toy.price/100)
         }
 
         # save the cart back to sessions
@@ -33,7 +35,11 @@ def add_to_cart(request, toy_id):
         return redirect(reverse('show_toy_route'))
     else:
         cart[toy_id]['qty'] += 1
+        cart[toy_id]['total'] = int(
+            cart[toy_id]['qty']) * float(cart[toy_id]['price'])
         request.session['shopping_cart'] = cart
+        messages.success(request, f"{cart[toy_id]['title']} "
+                                  f"has been added to your cart!")
         return redirect(reverse('show_toy_route'))
 
 
@@ -41,9 +47,14 @@ def add_to_cart(request, toy_id):
 def view_cart(request):
     # retrieve the cart
     cart = request.session.get('shopping_cart', {})
+    grand_total = 0
+
+    for key, value in cart.items():
+        grand_total += float(value['price'] * value['qty'])
 
     return render(request, 'cart/view_cart.template.html', {
-        'cart': cart
+        'cart': cart,
+        'grand_total': grand_total
     })
 
 

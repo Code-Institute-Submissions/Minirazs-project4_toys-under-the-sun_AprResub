@@ -4,27 +4,41 @@
 
 
 {% block content %}
-    <h1>My Shopping Cart</h1>
-    <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
+    <h1>{{request.user}}: Your Shopping Cart</h1>
 
-   {%for key, item in cart.items %}
-    <div class="card mt-2 mb-2">       
-        <div class="card-body">
-         <div class="card-title"><h3>{{item.title}}</h3></div>
-         <div>
-            <form method="POST" action="{% url 'update_cart_quantity' toy_id=item.id%}">
-                {% csrf_token %}
-                {% cloudinary item.cover alt="Product image" width=200 height=120 crop="fill"%}
-                Quantity:<input type="text" value="{{item.qty}}" name="qty" style="width:40px" />
-                <input class="btn btn-primary btn-sm" type="submit" value="Update Quantity">
-            </form>
-         </div>
-            Price: ${{item.price}}<br/>
-            <a href="{% url 'remove_from_cart' toy_id=item.id %}" class="btn btn-danger btn-sm">Remove</a>
+    <div class="col-md-12">
+        {%for key, item in cart.items %}
+        <div class="card mt-2 mb-2">       
+            <div class="card-body">
+                <div class="card-title">
+                    <h3>{{item.title}}</h3>
+                </div>
+                    <div>
+                        <form method="POST" action="{% url 'update_cart_quantity' toy_id=item.id%}">
+                            {% csrf_token %}
+                            {% cloudinary item.cover alt="Product image" width=200 height=120 crop="fill"%}
+                            <br>
+                            Quantity:<input type="text" value="{{item.qty}}" name="qty" style="width:40px" />
+                            <input class="btn btn-primary btn-sm" type="submit" value="Update Quantity">
+                        </form>
+                        <br>
+                    </div>
+                    Price: ${{item.price}}
+                    <a href="{% url 'remove_from_cart' toy_id=item.id %}" class="btn btn-danger btn-sm">Remove</a>
+                    <br>
+                    Sub-total: ${{item.total}}
+                    <br>
+            </div>
+
         </div>
+        {%endfor%}
     </div>
-    {%endfor%}
+    <br>
+    <div class="col-md-12">
+        <h2>Total Amount: ${{grand_total}}</h2>
+        <p>Please note that payment mode is by credit card.</p>
+        <p>Self collect your items at the nearest POPstation. Collection details will be emailed to you after your purchase.</p> 
+    </div>
 
-
-
+    <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
 {%endblock%}
