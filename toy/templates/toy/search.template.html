@@ -11,19 +11,19 @@
 
     <div class="display_cards">  
         {%for toy in toys %}
-            <div class="card" style="width: 500px; height: 350px; margin: 20px;">
-                <div class="card_image">
-                    <a href="{%url 'one_toy_route' toy_id=toy.id %}">
+            <div class="card" style="width: 500px; height: 350px; margin: 20px; text-align: center;">
+                <div class="card_image" style="margin-top: 50px;">
+                    <a href="{%url 'one_toy_route' toy_id=toy.id %}" >
                         {% cloudinary toy.cover width=200 height=120 crop="fill"%}
                     </a>
                 </div>
                 <div class="card-body">
                     <a href="{%url 'one_toy_route' toy_id=toy.id %}">
-                        <h5 class="card-title center_text">{{toy.title}}</h5>
+                        <h4 class="card-title center_text">{{toy.title}}</h4>
                     </a>
-                    <h6 class="card-text center_text">
+                    <h5 class="card-text center_text">
                         ${{toy.price}}
-                    </h6>
+                    </h5>
                 </div>
             </div>
         {%endfor%}
