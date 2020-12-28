@@ -32,6 +32,10 @@ p, a {
     margin-bottom: 0.5rem;
 }
 
+.header_style {
+    margin-top: 15px;
+}
+
 /* the container background to read text clearly */
 .text_background {
     background-color: white;
