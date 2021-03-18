@@ -15,8 +15,10 @@
 
     <h2 class="header_style">Check out our latest Toys!</h2>
 
-    <div class="container"></div>
-
+    <div class="container">
+        <img src="{%static '/img/heroimage.jpg' %}" id="heroimage">
+    </div>
+    <br>
     <form method="GET" action="{% url 'search_toy' %}">
         {{search_form|crispy}}
         <input type="submit" value="Search" class="btn btn-primary"/>
