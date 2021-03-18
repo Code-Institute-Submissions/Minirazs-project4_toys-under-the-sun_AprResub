@@ -1,9 +1,7 @@
 body {
-    background-image: url("https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    background-repeat: repeat;
+    background-color: rgba(	135, 206, 250, 1);
     font-size: 18px;
     font-family: 'Quicksand', sans-serif;
-    
 }
 
 /* Highlight text using cursive */
