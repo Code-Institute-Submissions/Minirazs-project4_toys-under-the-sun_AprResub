@@ -203,23 +203,24 @@ Github is used for version controlling and all the commits for this project foun
 The site is automatically updated when new commits are pushed to the master branch from VSC or GitPod using the Source Control: Git panel on the left of the console.
 
 1. Once there are any changes made to the files, individual files are staged by clicking on the &#39;+&#39; sign in the Source Control: Git panel
-2. Enter relevant message to the changes into the bar and select &#39;Push to Origin - GIthub&#39; to commit to GitHub
+2. Enter relevant message to the changes into the bar and press Ctrl Enter to commit to GitHub
 
-Deployment to Heroku via GitPod:
+**Deployment to Heroku via GitPod:**
 
-1. Log into Heroku by typing into the bash terminal: heroku login -i
-2. Create a new heroku app: heroku create \&lt;app-name\&gt;
-3. Check correct remotes added: git remote -v
-4. Install gunicorn: pip3 install gunicorn
+1. Log into Heroku by typing into the bash terminal: ```heroku login -i```
+2. Create a new heroku app: ```heroku create <app-name>```
+3. Check correct remotes added: ```git remote -v```
+4. Install gunicorn: ```pip3 install gunicorn```
 5. Create a name file named &quot; **P** rocfile&quot; in the same directory as app.py
-6. Enter: web gunicorn \&lt;your python file name without .py\&gt;:app
-7. Create requirements file: pip3 freeze --local \&gt; requirements.txt
-8. Using bash, commit all new changes to GitHub: git add . then git commit -m &quot;\&lt;message\&gt;&quot; then git push
-9. Push to Heroku: git push heroku master
+6. Enter: ```web gunicorn <python file name without '.py'>```
+7. Create requirements file: ```pip3 freeze --local requirements.txt```
+8. Using bash, commit all new changes to GitHub: ```git add .``` then ```git commit -m "message"```, and then git push to Origin ```git push```
+9. Push to Heroku: ```git push heroku master```
 
 On Heroku website:
 
-Log into [Heroku](https://id.heroku.com/login) dashboard, go to settings and set environment variables under Config variables.
+- Log into [Heroku](https://id.heroku.com/login) dashboard, go to settings and set environment variables under Config variables ```SECRET_KEY = <your own key>```, ```MONGO_URI = <your MongoDB URI>```
+- Open App to view the web application!
 
 ## Credits 
 
