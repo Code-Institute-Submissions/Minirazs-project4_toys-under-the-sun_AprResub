@@ -27,8 +27,8 @@
         </div>
         {% if request.user.is_superuser %}
         <div class="row">
-            <a href="{% url 'update_toy_route' toy_id=toy.id %}" class="btn btn-primary btn-sm">Edit</a>
-            <a href="{% url 'delete_toy_route' toy_id=toy.id %}" class="btn btn-primary btn-sm">Delete</a>
+            <a href="{% url 'update_toy_route' toy_id=toy.id %}" class="btn btn-primary btn-sm spacing">Edit</a>
+            <a href="{% url 'delete_toy_route' toy_id=toy.id %}" class="btn btn-primary btn-sm spacing">Delete</a>
         </div>
         {% endif %}
         <br>
@@ -50,8 +50,8 @@
                         <h6 class="card-subtitle mb-2 text-muted">{{review.date}}</h6>
                         <p class="card-text">{{review.review}}</p>
                         {% if review.user == request.user %}
-                            <a href="{% url 'update_review_route' review_id=review.id %}" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="{% url 'delete_review_route' review_id=review.id %}" class="btn btn-primary btn-sm">Delete</a>
+                            <a href="{% url 'update_review_route' review_id=review.id %}" class="btn btn-primary btn-sm spacing">Edit</a>
+                            <a href="{% url 'delete_review_route' review_id=review.id %}" class="btn btn-primary btn-sm spacing">Delete</a>
                         {% endif %}
                     </div>
                 </div>

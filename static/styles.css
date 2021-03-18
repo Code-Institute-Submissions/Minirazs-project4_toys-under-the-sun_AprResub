@@ -45,6 +45,13 @@ p, a {
 }
 }
 
+/* hero image */
+.container {
+    width: 1200px;
+    height: 800px;
+    background: url("/static/img/heroimage.jpg");
+}
+
 /* card styling design */
 .card {
     display: flex;
@@ -62,6 +69,12 @@ p, a {
 
 .review_display {
     margin-top: 30px;
+}
+
+/* Checkout box */
+#checkout {
+    background-color: white;
+    padding: 20px;
 }
 
 /* Footer */

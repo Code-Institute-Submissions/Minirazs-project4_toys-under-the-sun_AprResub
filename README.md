@@ -3,7 +3,7 @@
 
 # Full Stack Frameworks with Django - Milestone Project: **Toys under the Sun**
 
-[Toys🎮 under the Sun🌞](https://toysunderthesun.herokuapp.com/toy/) is a web application for users to purchase toys globally and to enable them to read and write reviews of these toys before deciding whether to purchase them.
+[Toys🎮 under the Sun🌞](https://toysunderthesun.herokuapp.com/toy/) is an e-commerce website for users to search, review and purchase toys meant for young kids to teenagers globally. It helps to make the users buying experience easy by letting them read and write reviews of these toys before deciding on the purchase. 
 
 The sample user login:
 
@@ -17,7 +17,9 @@ The administrator login:
 
 ## UX
 
-The web application is meant to be easy to manoeuvre for the user to find toys easily, read reviews to determine if it is the right toy for them, add to shopping cart and purchase them.
+The web application is meant to be easy to manoeuvre for the user or customer to find toys easily, read reviews to determine if it is the right toy for them, add to shopping cart and purchase them. The customer will need to create a user login to either write a review on a toy or make a purchase!
+
+On the other hand, it should also allow the administrator to add, edit and delete toy products from this online catalog. 
 
 ## UI
 

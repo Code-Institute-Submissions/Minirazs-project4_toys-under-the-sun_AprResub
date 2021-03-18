@@ -12,9 +12,9 @@
     <div class="display_cards">  
         {%for toy in toys %}
             <div class="card" style="width: 500px; height: 350px; margin: 20px; text-align: center;">
-                <div class="card_image" style="margin-top: 50px;">
+                <div class="card_image" style="margin: 10px;">
                     <a href="{%url 'one_toy_route' toy_id=toy.id %}" >
-                        {% cloudinary toy.cover width=200 height=120 crop="fill"%}
+                        {% cloudinary toy.cover width=300 height=180 crop="fit"%}
                     </a>
                 </div>
                 <div class="card-body">
@@ -23,6 +23,10 @@
                     </a>
                     <h5 class="card-text center_text">
                         ${{toy.price}}
+                    </h5>
+                    <h5 class="card-text center_text">
+                        <a href="{%url 'one_toy_route' toy_id=toy.id %}" class="btn btn-primary">Find out more</a>
+                        <a href="{% url 'add_to_cart_route' toy_id=toy.id %}" class="btn btn-primary btn-success">Add to Cart</a>
                     </h5>
                 </div>
             </div>
