@@ -75,7 +75,7 @@ Site owners&#39; goals:
 
 ### _Features that can be improved / Future Developments_
 
-1. Navbar to have a dropdown that leads the user to different Toy categories without needing to use the search form
+1. Navbar to have a dropdown that leads the user to different Toy categories without needing to use the search form. To make the search form more concise, taking up less space.
 2. Have a **banner carousell** right below the navbar to allow users to read what the site is about, the latest trends and ongoing promotions
 3. At Product Creation and Editing page, to **dynamically generate additional input fields** and to have **HTML tags to style** the inputs
 4. To **create a User app with User model** – for user to access Purchase/ Order history and to enter Shipping details for ordered items to be shipped to him directly.
@@ -120,8 +120,8 @@ Technologies Used
   - To convert word doc into Markdown for use in README.md
 - [Google Font](https://fonts.google.com/)
   - Fonts used
-- [Looka](https://looka.com/)
-  - Create logo
+- [Favicon](https://favicon.io/)
+  - Favicon creation
 - [Github](https://github.com/) and GitPod
 - [Heroku](https://www.heroku.com/)
 
@@ -191,7 +191,9 @@ Also, when app is deployed to Django, the user signing up for a new account. The
 
 _Issues with Product Editing page and Cloudinary image uploader_
 
-When the administrator edits a Toy item, the Cloudinary image uploader has some issues, causing the form to need to submit twice before the Toy item is successfully updated.
+When the administrator edits a Toy item, the Cloudinary image uploader has some issues, causing the form to need to submit twice before the Toy item is successfully updated. 
+
+Secondly, as a future development, when the Toy already has an existing image uploaded, the image URL can be stored separately and input so as not needing to be uploaded again.
 
 ##
 
@@ -223,7 +225,7 @@ The site is automatically updated when new commits are pushed to the master bran
 
 On Heroku website:
 
-- Log into [Heroku](https://id.heroku.com/login) dashboard, go to settings and set environment variables under Config variables
+- Log into [Heroku](https://id.heroku.com/login) dashboard, go to settings and set environment variables (same as those named in .env file) under Config variables
 - Open App to view the web application!
 
 ## Credits 
