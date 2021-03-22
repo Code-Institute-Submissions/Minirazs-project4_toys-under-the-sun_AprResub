@@ -21,7 +21,7 @@
                 </p>
                 {% if each_review.user == request.user %}
                     <a href="{% url 'update_review_route' review_id=each_review.id %}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{% url 'delete_review_route' review_id=each_review.id %}" class="btn btn-primary btn-sm">Delete</a>
+                    <a href="{% url 'delete_review_route' review_id=each_review.id %}" class="btn btn-danger btn-sm">Delete</a>
                 {% endif %}
             </div>
         </div>
