@@ -73,12 +73,13 @@ Site owners&#39; goals:
 - Footer consists all the links in navbar for user to quickly navigate around the site.
 - Mobile responsive – when device and screen size changes, the elements in the site change to optimize the user&#39;s viewing experience.
 
-### _Features that can be improved / Future Plans_
+### _Features that can be improved / Future Developments_
 
 1. Navbar to have a dropdown that leads the user to different Toy categories without needing to use the search form
 2. Have a **banner slider** right below the navbar to allow users to read what the site is about, the latest trends and ongoing promotions
 3. At Product Creation and Editing page, to **dynamically generate additional input fields** and to have **HTML tags to style** the inputs
 4. To **create a User app with User model** – for user to access Purchase/ Order history and to enter Shipping details for ordered items to be shipped to him directly.
+5. To have **superuser account creation** by having a Superuser app with Superuser model for some toy retailers to list and manage their items, check sales and order details on the site.
 
 Currently, only the Administrator is able to view Purchase model and instances of every Purchase (Purchase/Order history) in the admin panel.
 
