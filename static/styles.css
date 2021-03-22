@@ -32,7 +32,7 @@ p, a {
 
 .header_style {
     margin-top: 15px;
-    color: yellow;
+    color: rgba(255, 216, 0, 1);
 }
 
 /* the container background to read text clearly */
@@ -53,6 +53,19 @@ p, a {
 #heroimage {
     max-width: 100%;
     max-height: 100%;
+}
+
+/* button styling */
+.btn-success {
+    color: black;
+    background-color: rgba(255, 242, 0, 1);
+    border-color: rgba(255, 242, 0, 1);
+}
+
+.btn-success:hover {
+    color: black;
+    background-color: rgba(255, 216, 0, 1);
+    border-color: rgba(255, 216, 0, 1);
 }
 
 /* card styling design */
