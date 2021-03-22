@@ -15,8 +15,8 @@
 
     <h2 class="header_style">Check out our latest Toys!</h2>
 
-    <div class="container">
-        <img src="{%static '/img/heroimage.jpg' %}" id="heroimage">
+    <div class="hero-container">
+        <a href="{% url 'search_toy' %}"><img src="{%static '/img/heroimage.jpg' %}" id="heroimage"></a>
     </div>
     <br>
     <form method="GET" action="{% url 'search_toy' %}">
