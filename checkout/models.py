@@ -19,4 +19,3 @@ class Purchase(models.Model):
     def save(self, *args, **kwargs):
         self.total = self.price * self.qty
         super().save(*args, **kwargs)
-

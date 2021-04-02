@@ -29,6 +29,7 @@ category = (
     ('Electronics', 'Electronics')
 )
 
+
 class ToyForm(forms.ModelForm):
     class Meta:
         model = Toy
@@ -54,7 +55,7 @@ class SearchForm(forms.Form):
         widget=forms.CheckboxSelectMultiple,
         choices=age,
     )
-    
+
     country = forms.MultipleChoiceField(
         label="Country of Origin",
         required=False,
