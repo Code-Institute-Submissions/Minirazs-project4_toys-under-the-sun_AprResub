@@ -86,7 +86,6 @@ def update_quantity(request, toy_id):
             cart[toy_id]['qty']) * float(cart[toy_id]['price'])
 
     # Tally grand total
-    print(cart)
     grand_total = 0
     for k, v in cart.items():
         grand_total += v['total']
