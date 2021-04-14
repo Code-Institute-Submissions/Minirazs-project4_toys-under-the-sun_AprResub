@@ -23,10 +23,10 @@
                         </form>
                         <br>
                     </div>
-                    Price: SGD${{item.price}}
+                    Price: SGD ${{item.price}}
                     <a href="{% url 'remove_from_cart' toy_id=item.id %}" class="btn btn-danger btn-sm">Remove</a>
                     <br>
-                    Sub-total: SGD${{item.total}}
+                    Sub-total: SGD ${{item.total}}
                     <br>
             </div>
 
@@ -38,7 +38,7 @@
     {% if cart.items|length > 0 %}
     <div id="checkout">
         <div class="col-md-12">
-            <h2>Total Purchase Amount: SGD${{grand_total|floatformat:2}}</h2>
+            <h2>Total Purchase Amount: SGD ${{grand_total|floatformat:2}}</h2>
             <p>Please note that payment mode is by credit card.</p>
             <p>Self collect your items at the nearest POPstation. Collection details will be emailed to you after your purchase.</p> 
         </div>
