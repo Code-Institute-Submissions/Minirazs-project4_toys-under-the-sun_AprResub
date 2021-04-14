@@ -83,7 +83,9 @@ def create_toy(request):
         if create_form.is_valid():  # 3
             create_form.save()  # 4
             messages.success(
-                request, f"New toy {create_form.cleaned_data['title']} has been created")
+                request,
+                f"New toy {create_form.cleaned_data['title']} is created"
+            )
             return redirect(reverse(index))
         else:
             # 5. if does not have valid values, re-render the form
