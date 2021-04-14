@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse, HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect, reverse, HttpResponse
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.contrib.auth.models import User
@@ -7,10 +7,13 @@ from .models import Purchase
 import stripe
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
 
+@login_required
 def checkout(request):
     # set the api keys for stripe to work
     stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -64,15 +67,18 @@ def checkout(request):
     })
 
 
+@login_required
 def checkout_success(request):
     # Empty the shopping cart
     request.session['shopping_cart'] = {}
+    messages.success(request, "Payment is successful!")
+    return redirect(reverse("home"))
 
-    return HttpResponse("Payment completed successfully")
 
-
+@login_required
 def checkout_cancelled(request):
-    return HttpResponse("Checkout cancelled")
+    messages.success(request, "Payment is unsuccessful! Please try again!")
+    return redirect(reverse("view_cart"))
 
 
 @csrf_exempt
@@ -105,6 +111,7 @@ def payment_completed(request):
     return HttpResponse(status=200)
 
 
+@login_required
 def handle_payment(session):
     print(session)
 

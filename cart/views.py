@@ -1,6 +1,5 @@
-from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
-from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.admin.views.decorators import staff_member_required
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from toy.models import Toy
 from django.db.models import Q
@@ -10,7 +9,7 @@ from django.db.models import Q
 
 @login_required
 def add_to_cart(request, toy_id):
-    # attempt to get existing cart from the session using the key "shopping_cart"
+    # attempt to get existing cart from session using the key "shopping_cart"
     # the second argument will be the default value if
     # if the key does not exist in the session
     cart = request.session.get('shopping_cart', {})

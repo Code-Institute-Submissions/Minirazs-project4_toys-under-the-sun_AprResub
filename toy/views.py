@@ -36,7 +36,6 @@ def search(request):
     # check if the user has submitted anything
     if request.GET:
         # if the user has filled in the title
-        print(request.GET)
         if 'title' in request.GET and request.GET['title'] and request.GET['title'] != "":
             queries = queries & Q(title__icontains=request.GET['title'])
 
@@ -48,11 +47,6 @@ def search(request):
 
         if 'category' in request.GET and request.GET['category']:
             queries = queries & Q(category__in=request.GET.getlist('category'))
-
-    # sandbox
-    # queries = queries & Q(title__icontains="rings")
-    # queries = queries & Q(tags__in=[2])
-    # endsandbox
 
     all_toys = toy_query.filter(queries)
 

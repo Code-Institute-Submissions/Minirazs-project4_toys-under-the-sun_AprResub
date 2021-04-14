@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     # homepage
-    path('', toy.views.redirect_view),
+    path('', toy.views.redirect_view, name='home'),
     # toy urls
     path('toy/', include('toy.urls')),
 
