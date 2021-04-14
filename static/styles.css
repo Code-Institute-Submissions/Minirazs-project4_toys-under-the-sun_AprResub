@@ -68,6 +68,13 @@ p, a {
     border-color: rgba(255, 216, 0, 1);
 }
 
+
+.btn-success:active {
+    color: black;
+    background-color: rgba(255, 216, 0, 1);
+    border-color: rgba(255, 216, 0, 1);
+}
+
 /* card styling design */
 .card {
     display: flex;
