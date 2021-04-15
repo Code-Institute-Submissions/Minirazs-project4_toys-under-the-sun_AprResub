@@ -131,7 +131,8 @@ Technologies Used
 
 ## Database Design
 
-The [ER diagram of this project can be found here](https://github.com/Minirazs/project4_toys-under-the-sun/blob/master/static/img/project4_ERdiagram.JPG).
+![](static/img/project4_ERdiagram.JPG)
+
 ## Testing
 
 Before deployment to Heroku, the manual testing is done using the browser&#39;s Inspect tool and 8080 server to preview the site ensures that the site is mobile responsive and all content, such as buttons and links, are linked correctly and displayed on different screen sizes, namely mobile (below 480px), tablet (between 768px to 1024px) and laptop (above 1024px):
