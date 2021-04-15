@@ -179,7 +179,7 @@ These steps are repeated in the testing on major web browsers, Chrome and Firefo
 | 18 | Add item to Cart | Item added to cart. Shown on navbar and on Cart page. | As expected |
 | 19 | Edit the quantity of product in Shopping Cart | Type in the new quantity, click on update quantity button to save the new quantity | As expected |
 | 20 | Tally the total amount payable in cart | View subtotal of each product in cart and the grand total of all the products in the cart before checkout | As expected |
-| 21 | Checkout using test credit card details | Successful credit card payment processed. Links to &quot;Checkout successful&quot; web page. Correct amount is credited to Stripe account as sales.Also, webhook is successful with stripe sending metadata back. | As expected |
+| 21 | Checkout using test credit card details | Successful credit card payment processed. Toast message to say &quot;Checkout successful&quot; and user is brought back to home page. Correct amount is credited to Stripe account as sales. Also, webhook is successful with stripe sending metadata back. | As expected |
 | 22 | Save the Purchase instances and store it in database upon successful checkout | Purchase instances of every Toy purchased are saved and stored in database upon successful checkout with the correct Toy ID, quantity, amount and date/time ordered | As expected |
 | 23 | Create a new user login account | Email verification sent to user&#39;s email. User to click on the link to verify account for successful creation. | Did not receive email. User can only be verified at Admin panel (explained below) |
 
