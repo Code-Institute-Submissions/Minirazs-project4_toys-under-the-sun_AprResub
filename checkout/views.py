@@ -77,7 +77,7 @@ def checkout_success(request):
 
 @login_required
 def checkout_cancelled(request):
-    messages.success(request, "Payment is unsuccessful! Please try again!")
+    messages.error(request, "Payment is unsuccessful! Please try again!")
     return redirect(reverse("view_cart"))
 
 

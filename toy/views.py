@@ -1,12 +1,10 @@
-from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
-from .forms import ToyForm, SearchForm
+from .forms import ToyForm, EditToyForm, SearchForm
 from .models import Toy
 from django.db.models import Q
-
-# Create your views here.
 
 
 def redirect_view(request):
@@ -25,17 +23,15 @@ def index(request):
 
 
 def search(request):
-    # a query set that represents ALL the toys
+
     toy_query = Toy.objects.all()
 
     search_form = SearchForm()
 
-    # create an empty query  -- represents ALWAYS TRUE
     queries = ~Q(pk__in=[])
 
-    # check if the user has submitted anything
     if request.GET:
-        # if the user has filled in the title
+
         if 'title' in request.GET and request.GET['title'] and request.GET['title'] != "":
             queries = queries & Q(title__icontains=request.GET['title'])
 
@@ -59,12 +55,8 @@ def search(request):
     })
 
 
-# show details of a specific toy
-
-
 def one_toy(request, toy_id):
     toy = get_object_or_404(Toy, pk=toy_id)
-    print(toy.cover.url)
 
     toy.price = float(toy.price/100)
 
@@ -75,18 +67,18 @@ def one_toy(request, toy_id):
 
 @staff_member_required
 def create_toy(request):
-    if request.method == 'POST':  # 1
+    if request.method == 'POST':
 
-        create_form = ToyForm(request.POST)  # 2
+        create_form = ToyForm(request.POST)
 
-        # check if the form has valid values
-        if create_form.is_valid():  # 3
-            create_form.save()  # 4
+        if create_form.is_valid():
+            create_form.save()
             messages.success(
-                request, f"New toy {create_form.cleaned_data['title']} has been created")
+                request,
+                f"New toy {create_form.cleaned_data['title']} is created"
+            )
             return redirect(reverse(index))
         else:
-            # 5. if does not have valid values, re-render the form
             return render(request, 'toy/create.template.html', {
                 'form': create_form
             })
@@ -99,15 +91,12 @@ def create_toy(request):
 
 @staff_member_required
 def update_toy(request, toy_id):
-    # 1. retrieve the toy which we are editing
+
     toy_being_updated = get_object_or_404(Toy, pk=toy_id)
 
-    # 2 - create the form and fill it with data from toy instance
     if request.method == "POST":
         toy_form = ToyForm(request.POST, instance=toy_being_updated)
 
-        # 3. create the form and fill in the user's data. Also specify that
-        # this is to update an existing model (the instance argument)
         if toy_form.is_valid():
             toy_form.save()
             return redirect(reverse(index))
@@ -117,11 +106,10 @@ def update_toy(request, toy_id):
                 "form": toy_form
             })
     else:
-        # 4. create a form with the toy details filled in
-        toy_form = ToyForm(instance=toy_being_updated)
+        toy_form = EditToyForm(instance=toy_being_updated)
 
         return render(request, 'toy/update.template.html', {
-            "form": toy_form
+            "form": toy_form,
         })
 
 

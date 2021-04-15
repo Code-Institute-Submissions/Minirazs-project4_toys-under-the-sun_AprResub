@@ -22,11 +22,11 @@
                         <h4 class="card-title center_text">{{toy.title}}</h4>
                     </a>
                     <h5 class="card-text center_text">
-                        ${{toy.price}}
+                        SGD ${{toy.price}}
                     </h5>
                     <h5 class="card-text center_text">
                         <a href="{%url 'one_toy_route' toy_id=toy.id %}" class="btn btn-primary">Find out more</a>
-                        <a href="{% url 'add_to_cart_route' toy_id=toy.id %}" class="btn btn-primary btn-success">Add to Cart</a>
+                        <a href="{% url 'add_to_cart_route' toy_id=toy.id %}" class="btn btn-yellow">Add to Cart</a>
                     </h5>
                 </div>
             </div>
