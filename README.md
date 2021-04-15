@@ -15,11 +15,9 @@ The administrator login:
 | _ID:_ toys | _Password:_ first |
 | --- | --- |
 
-Desktop:
 ![](static/img/homepage1.JPG)
 
-Mobile:
-![](static/img/homepage_mobile.JPG)
+![](static/img/homepage_mobile.JPG =375x812)
 
 ## UX
 
@@ -296,7 +294,7 @@ Special thanks to the developers and tech creators for sharing freely their code
 
 _Certain Django &amp; Heroku Deployment steps_
 
-Special thanks and credit to Heroku Dev Center and my Coding Instructor [Paul Chor](https://github.com/kunxin-chor) for providing the Django code to some parts of the website (including cart and checkout) and the deployment steps that are shown above.
+Special thanks and credit to [Heroku Dev Center](https://devcenter.heroku.com/articles/getting-started-with-python) and my Coding Instructor [Paul Chor](https://github.com/kunxin-chor) for providing the Django code to some parts of the website (including cart and checkout) and the deployment steps that are shown above.
 
 _Images, Content &amp; Logo 📷_
 
