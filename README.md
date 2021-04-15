@@ -250,7 +250,38 @@ TEST_EMAIL = "0"
 ```
 - Open App to view the web application!
 
-**Clone the repository and run locally**
+**Clone repository and run the application locally on Windows**
+
+1. Install the Heroku Command Line Interface (CLI) for Windows installation here: https://devcenter.heroku.com/articles/getting-started-with-python#set-up
+2. On Windows, start the Command Prompt (cmd.exe) and log into Heroku: ```heroku login -i```
+3. Clone repository to have a local version of the code: ```git clone https://github.com/Minirazs/project4_toys-under-the-sun.git```
+4. Change directory to local repository: ```cd project4_toys-under-the-sun```
+5. Create a new heroku app: ```heroku create <APP NAME>```
+6. If the app is already created, add heroku remote: ```heroku git:remote -a <APP NAME>```
+7. Deploy to Heroku: ```git push heroku main```
+8. Open the app: ```heroku open```
+9. Install app dependencies locally: ```pip install -r requirements.txt```
+10. In root folder, create a .env file and set the following environment variables:
+```
+export SECRET_KEY = "<Your own key>"
+export CLOUDINARY_CLOUD_NAME = "<Cloudinary account name>"
+export CLOUDINARY_API_KEY = "<Cloudinary API key>"
+export CLOUDINARY_API_SECRET = "<Cloudinary secret key>"
+export STRIPE_PUBLISHABLE_KEY = "<Stripe publishable key>"
+export STRIPE_SECRET_KEY = "<Stripe secret key>"
+export ENDPOINT_SECRET = "<Stripe webhook endpoint signing secret>"
+export DATABASE_URL = "<Heroku PostgreSQL database URL>"
+export EMAIL_HOST_PASSWORD = "<email host password>"
+export EMAIL_HOST_USER = "<email address>"
+export TEST_EMAIL = "0"
+
+```
+10. Run collectstatic: ```python manage.py collectstatic``` and reply "yes"
+11. Start the app locally using heroku local: ```heroku local web -f Procfile.windows```
+12. Open http://localhost:5000 with web browser and the app is running locally!
+
+
+ 
 
 
 ## Credits 
