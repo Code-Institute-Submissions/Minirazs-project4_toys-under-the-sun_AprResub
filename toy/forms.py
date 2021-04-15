@@ -39,6 +39,13 @@ class ToyForm(forms.ModelForm):
     cover = CloudinaryJsFileField()
 
 
+class EditToyForm(forms.ModelForm):
+    class Meta:
+        model = Toy
+        fields = ('title', 'brand', 'price', 'country', 'age', 'category',
+                  'desc', 'features', 'cover')
+
+
 class SearchForm(forms.Form):
     title = forms.CharField(label="Search by name",
                             max_length=100, required=False)
