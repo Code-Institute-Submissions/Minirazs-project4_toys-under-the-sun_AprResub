@@ -15,8 +15,11 @@ The administrator login:
 | _ID:_ toys | _Password:_ first |
 | --- | --- |
 
-![](static/img/project4_homepage1.JPG)
-![](static/img/project4_homepage_mobile.JPG)
+Desktop:
+![](static/img/homepage1.JPG)
+
+Mobile:
+![](static/img/homepage_mobile.JPG)
 
 ## UX
 
