@@ -213,11 +213,11 @@ The site is automatically updated when new commits are pushed to the master bran
 2. Enter relevant message to the changes into the bar and press Ctrl Enter to commit to GitHub
 
 OR 
-1. Add individual file to the next commit staging area by typing ```git add <filename>``` in the bash terminal
-2. Add changes in the working directory by typing ```git add .``` 
-3. Write a meaningful message to describe the changes by typing ```git commit -m "<message>"``` 
-4. Push initial local branch commits to the remote repository master branch by typing ```git push -u origin master```
-5. Push subsequent local branch commits typing ```git push```
+1. Add individual file to the next commit staging area by typing in the bash terminal: ```git add <filename>```
+2. Add changes in the working directory: ```git add .``` 
+3. Write a meaningful message to describe the changes: ```git commit -m "<message>"``` 
+4. Push initial local branch commits to the remote repository master branch: ```git push -u origin master```
+5. Push subsequent local branch commits: ```git push```
 
 **Deployment to Heroku via GitPod:**
 
