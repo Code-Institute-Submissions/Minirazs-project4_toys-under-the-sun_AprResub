@@ -250,6 +250,9 @@ TEST_EMAIL = "0"
 ```
 - Open App to view the web application!
 
+**Clone the repository and run locally**
+
+
 ## Credits 
 
 _Tools &amp; Tech used_
