@@ -233,7 +233,21 @@ OR
 
 On Heroku website:
 
-- Log into [Heroku](https://id.heroku.com/login) dashboard, go to settings and set environment variables (same as those named in .env file) under Config variables
+- Log into [Heroku](https://id.heroku.com/login) dashboard, go to Settings and Config Vars to set environment variables (same as those named in .env file) under Config variables
+```
+SECRET_KEY = "<Your own key>"
+CLOUDINARY_CLOUD_NAME = "<Cloudinary account name>"
+CLOUDINARY_API_KEY = "<Cloudinary API key>"
+CLOUDINARY_API_SECRET = "<Cloudinary secret key>"
+STRIPE_PUBLISHABLE_KEY = "<Stripe publishable key>"
+STRIPE_SECRET_KEY = "<Stripe secret key>"
+ENDPOINT_SECRET = "<Stripe webhook endpoint signing secret>"
+DATABASE_URL = "<Heroku PostgreSQL database URL>"
+EMAIL_HOST_PASSWORD = "<email host password>"
+EMAIL_HOST_USER = "<email address>"
+TEST_EMAIL = "0"
+
+```
 - Open App to view the web application!
 
 ## Credits 
