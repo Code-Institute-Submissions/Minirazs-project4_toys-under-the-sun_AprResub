@@ -15,6 +15,9 @@ The administrator login:
 | _ID:_ toys | _Password:_ first |
 | --- | --- |
 
+![](static/img/project4_homepage1.JPG)
+![](static/img/project4_homepage_mobile.JPG)
+
 ## UX
 
 The web application is meant to be easy to manoeuvre for the user or customer to find toys easily, read reviews to determine if it is the right toy for them, add to shopping cart and purchase them. The customer will need to create a user login to either write a review on a toy or make a purchase!
@@ -281,8 +284,6 @@ export TEST_EMAIL = "0"
 12. Open http://localhost:5000 with web browser and the app is running locally!
 
 
- 
-
 
 ## Credits 
 
@@ -292,7 +293,7 @@ Special thanks to the developers and tech creators for sharing freely their code
 
 _Certain Django &amp; Heroku Deployment steps_
 
-Special thanks and credit to instructor [Paul Chor](https://github.com/kunxin-chor) for providing the Django code to some parts of the website (including cart and checkout) and the deployment steps that are shown above.
+Special thanks and credit to Heroku Dev Center and my Coding Instructor [Paul Chor](https://github.com/kunxin-chor) for providing the Django code to some parts of the website (including cart and checkout) and the deployment steps that are shown above.
 
 _Images, Content &amp; Logo 📷_
 
