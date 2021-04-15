@@ -1,11 +1,9 @@
-from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
-from django.contrib.auth.decorators import login_required, permission_required
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Review
 from .forms import ReviewForm
 from toy.models import Toy
-
-# Create your views here.
 
 
 def index(request):

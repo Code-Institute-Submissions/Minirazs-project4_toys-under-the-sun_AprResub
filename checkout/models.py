@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from toy.models import Toy
 
-# Create your models here.
-
 
 class Purchase(models.Model):
     toy = models.ForeignKey(Toy, on_delete=models.CASCADE)
