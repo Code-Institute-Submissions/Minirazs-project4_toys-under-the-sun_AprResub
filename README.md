@@ -241,6 +241,5 @@ Special thanks and credit to instructor [Paul Chor](https://github.com/kunxin-ch
 _Images, Content &amp; Logo 📷_
 
 - All product content including description, images and prices etc. are taken from [Toy&#39;r&#39;us.com](https://www.toysrus.com.sg/) and copyrights belong to every toy&#39;s respective brand
-- Background image of the sky from [Pexel.com](https://www.pexels.com/)
 
 _This e-commerce website is created for educational purposes only._
