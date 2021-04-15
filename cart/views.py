@@ -62,7 +62,7 @@ def remove_from_cart(request, toy_id):
         request.session['shopping_cart'] = cart
         messages.success(request, "Item removed from cart successfully!")
 
-    return redirect(reverse('search_toy'))
+    return redirect(reverse('view_cart'))
 
 
 @login_required
