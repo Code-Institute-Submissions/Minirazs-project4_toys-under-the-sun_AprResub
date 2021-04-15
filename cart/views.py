@@ -69,19 +69,15 @@ def remove_from_cart(request, toy_id):
 def update_quantity(request, toy_id):
     cart = request.session.get('shopping_cart')
     if toy_id in cart:
-        # update quantity
         cart[toy_id]['qty'] = request.POST['qty']
 
-        # update cart subtotal
         cart[toy_id]['total'] = int(
             cart[toy_id]['qty']) * float(cart[toy_id]['price'])
 
-    # Tally grand total
     grand_total = 0
     for k, v in cart.items():
         grand_total += v['total']
 
-    # Save session
     request.session['shopping_cart'] = cart
     messages.success(
         request, f"Quantity for {cart[toy_id]['title']} has been changed")
