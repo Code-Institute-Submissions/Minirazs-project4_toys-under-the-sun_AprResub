@@ -28,8 +28,6 @@ category = (
     ('Electronics', 'Electronics')
 )
 
-# Create your models here.
-
 
 class Toy(models.Model):
     title = models.CharField(blank=False, max_length=100, default='')
@@ -44,6 +42,5 @@ class Toy(models.Model):
     features = models.TextField(blank=False, default='')
     cover = CloudinaryField()
 
-# show the name in the database, make it into a string
     def __str__(self):
         return self.title

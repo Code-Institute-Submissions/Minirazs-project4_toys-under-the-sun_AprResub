@@ -10,28 +10,20 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-# Create your views here.
-
 
 @login_required
 def checkout(request):
-    # set the api keys for stripe to work
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
-    # retrieve the shopping cart
     cart = request.session.get('shopping_cart', {})
 
     line_items = []
     all_toy_ids = []
 
-    # go through each item in the shopping cart
     for toy_id, cart_item in cart.items():
 
-        # retrieve the toy specified by toy_id
         toy_model = get_object_or_404(Toy, pk=toy_id)
 
-        # create the line item
-        # for the line item, each key in the dictionary is prefixed by Stripes
         item = {
             "name": toy_model.title,
             "amount": int(toy_model.price),
@@ -48,7 +40,6 @@ def checkout(request):
     current_site = Site.objects.get_current()
     domain = current_site.domain
 
-    # create a payment session (it's for Stripe)
     session = stripe.checkout.Session.create(
         payment_method_types=["card"],
         line_items=line_items,
@@ -69,7 +60,6 @@ def checkout(request):
 
 @login_required
 def checkout_success(request):
-    # Empty the shopping cart
     request.session['shopping_cart'] = {}
     messages.success(request, "Payment is successful!")
     return redirect(reverse("home"))
@@ -87,7 +77,6 @@ def payment_completed(request):
     endpoint_secret = settings.ENDPOINT_SECRET
     payload = request.body
 
-    # retrieve the signature sent from Stripe
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
 
     try:
@@ -96,11 +85,10 @@ def payment_completed(request):
         )
 
     except ValueError as e:
-        # Invalid payload
         print("Invalid payload")
         return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as e:
-        # Signature is invalid
+
         print("Invalid signature")
         return HttpResponse(status=400)
 
@@ -113,24 +101,19 @@ def payment_completed(request):
 
 @login_required
 def handle_payment(session):
-    print(session)
 
     metadata = session['metadata']
     all_toy_ids = json.loads(metadata['all_toy_ids'])
-    print(all_toy_ids)
 
     user = get_object_or_404(User, pk=session['client_reference_id'])
 
-    # go through each toy id
     for toy_ordered in all_toy_ids:
         toy_model = get_object_or_404(Toy, pk=toy_ordered['toy_id'])
 
-        # create the purchase model
         purchase = Purchase()
         purchase.toy = toy_model
         purchase.user = user
         purchase.qty = toy_ordered['qty']
         purchase.price = toy_model.price
 
-        # save the model
         purchase.save()
