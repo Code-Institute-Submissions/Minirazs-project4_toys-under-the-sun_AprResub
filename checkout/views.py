@@ -68,7 +68,7 @@ def checkout_success(request):
 @login_required
 def checkout_cancelled(request):
     messages.error(request, "Payment is unsuccessful! Please try again!")
-    return redirect(reverse("view_cart"))
+    return redirect(reverse("view_cart_route"))
 
 
 @csrf_exempt
