@@ -17,11 +17,6 @@ The administrator login:
 
 ![](static/img/homepage1.JPG)
 
-![](static/img/homepage_mobile.JPG#thumbnail)
-img[src*="#thumbnail"] {
-   width:375px;
-   height:812px;
-}
 
 ## UX
 
