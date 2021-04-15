@@ -212,6 +212,13 @@ The site is automatically updated when new commits are pushed to the master bran
 1. Once there are any changes made to the files, individual files are staged by clicking on the &#39;+&#39; sign in the Source Control: Git panel
 2. Enter relevant message to the changes into the bar and press Ctrl Enter to commit to GitHub
 
+OR 
+1. Add individual file to the next commit staging area by typing ```git add <filename>``` in the bash terminal
+2. Add changes in the working directory by typing ```git add .``` 
+3. Write a meaningful message to describe the changes by typing ```git commit -m "<message>"``` 
+4. Push initial local branch commits to the remote repository master branch by typing ```git push -u origin master```
+5. Push subsequent local branch commits typing ```git push```
+
 **Deployment to Heroku via GitPod:**
 
 1. Log into Heroku by typing into the bash terminal: ```heroku login -i```
