@@ -130,7 +130,7 @@ Technologies Used
 - .env file stores environment variables so database credentials are hidden from public view.
 
 ## Database Design
-
+ER Diagram
 ![](static/img/project4_ERdiagram.JPG)
 
 ## Testing
