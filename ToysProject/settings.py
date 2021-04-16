@@ -10,9 +10,9 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["", "toysunderthesun.herokuapp.com"]
+ALLOWED_HOSTS = ["*", "toysunderthesun.herokuapp.com"]
 
 
 INSTALLED_APPS = [
