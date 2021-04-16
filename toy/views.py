@@ -46,7 +46,7 @@ def search(request):
     all_toys = toy_query.filter(queries)
 
     for i in all_toys:
-        i.price = float(i.price/100)
+        i.price = "{:.2f}".format(float(i.price/100))
 
     return render(request, 'toy/search.template.html', {
         'toys': all_toys,
@@ -57,7 +57,7 @@ def search(request):
 def one_toy(request, toy_id):
     toy = get_object_or_404(Toy, pk=toy_id)
 
-    toy.price = float(toy.price/100)
+    toy.price = "{:.2f}".format(float(toy.price/100))
 
     return render(request, 'toy/one_toy.template.html', {
         'toy': toy
