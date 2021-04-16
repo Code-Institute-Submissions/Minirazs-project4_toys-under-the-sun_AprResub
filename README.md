@@ -15,7 +15,7 @@ The administrator login:
 | _ID:_ toys | _Password:_ first |
 | --- | --- |
 
-![](static/img/homepage2.png)
+![](static/img/homepage1.JPG)
 
 
 ## UX
@@ -23,6 +23,7 @@ The administrator login:
 The web application is meant to be easy to manoeuvre for the user or customer to find toys easily, read reviews to determine if it is the right toy for them, add to shopping cart and purchase them. The customer will need to create a user login to either write a review on a toy or make a purchase!
 
 On the other hand, it should also allow the administrator to add, edit and delete toy products from this online catalog. 
+![](static/img/homepage2.png)
 
 ## UI
 
