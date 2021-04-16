@@ -15,7 +15,7 @@ The administrator login:
 | _ID:_ toys | _Password:_ first |
 | --- | --- |
 
-![](static/img/homepage2.JPG)
+![](static/img/homepage2.png)
 
 
 ## UX
@@ -81,9 +81,10 @@ Site owners&#39; goals:
 1. Navbar to have a dropdown that leads the user to different Toy categories without needing to use the search form. To make the search form more concise, taking up less space.
 2. Have a **banner carousell** right below the navbar to allow users to read what the site is about, the latest trends and ongoing promotions
 3. At Product Creation and Editing page, to **dynamically generate additional input fields** and to have **HTML tags to style** the inputs
-4. To **create a User app with User model** – for user to access Purchase/ Order history and to enter Shipping details for ordered items to be shipped to him directly.
+4. To **create a User app with User model** – a personal acccount tab for user to access Purchase/ Order history and to enter Shipping details for ordered items to be shipped to him directly.
 5. To have **superuser account creation** by having a Superuser app with Superuser model for some toy retailers to list and manage their items, check sales and order details on the site.
 6. To have additional pages in the site to describe the T&C of purchases, after sales services and shipment queries etc.
+7. Advanced form validation can be added to validate the fields in form submission (Add new toy or Edit toy pages)
 
 Currently, only the Administrator is able to view Purchase model and instances of every Purchase (Purchase/Order history) in the admin panel.
 
@@ -175,8 +176,8 @@ These steps are repeated in the testing on major web browsers, Chrome and Firefo
 | 17 | On the delete Review page, to click on _No_ button to abort deletion | Will link back to Home Page if the user cancels deletion | As expected |
 | 18 | Add item to Cart | Item added to cart. Shown on navbar and on Cart page. | As expected |
 | 19 | Edit the quantity of product in Shopping Cart | Type in the new quantity, click on update quantity button to save the new quantity | As expected |
-| 20 | Tally the total amount payable in cart | View subtotal of each product in cart and the grand total of all the products in the cart before checkout | As expected |
-| 21 | Checkout using test credit card details | Successful credit card payment processed. Toast message to say &quot;Checkout successful&quot; and user is brought back to home page. Correct amount is credited to Stripe account as sales. Also, webhook is successful with stripe sending metadata back. | As expected |
+| 20 | Tally the total amount (to 2 decimal places) payable in cart | View subtotal of each product in cart and the grand total of all the products in the cart before checkout | As expected |
+| 21 | Checkout using test credit card details | Successful credit card payment processed. Toast message to say &quot;Checkout successful&quot; and user is brought back to home page. ![](static/img/test02_success.JPG) In Stripe dashboard, the correct amount is credited to Stripe account as sales. Also, webhook is successful with stripe sending metadata back. | As expected |
 | 22 | Save the Purchase instances and store it in database upon successful checkout | Purchase instances of every Toy purchased are saved and stored in database upon successful checkout with the correct Toy ID, quantity, amount and date/time ordered | As expected |
 | 23 | Create a new user login account | Email verification sent to user&#39;s email. User to click on the link to verify account for successful creation. | Did not receive email. User can only be verified at Admin panel (explained below) |
 
@@ -200,6 +201,9 @@ When the administrator edits a Toy item, the Cloudinary image uploader has some 
 ![](static/img/must_upload_img.JPG)
 
 Secondly, as a future development, when the Toy already has an existing image uploaded, the image URL can be stored separately and input so as not needing a new image to be uploaded again.
+
+
+To sum up the Testing section, moving forward automated model testing and automated client testing can be carried out to ensure app is working well.
 
 ##
 
