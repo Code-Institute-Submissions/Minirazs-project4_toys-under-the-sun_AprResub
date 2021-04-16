@@ -15,7 +15,7 @@ The administrator login:
 | _ID:_ toys | _Password:_ first |
 | --- | --- |
 
-![](static/img/homepage1.JPG)
+![](static/img/homepage2.JPG)
 
 
 ## UX
@@ -196,6 +196,8 @@ Also, when app is deployed to Django, the user signing up for a new account. The
 _Issues with Product Editing page and Cloudinary image uploader_
 
 When the administrator edits a Toy item, the Cloudinary image uploader has some issues, causing the form to need to submit twice before the Toy item is successfully updated. Secondly, in the Update Toy page, it is compulsory for an image to be uploaded before it can be submitted even though the existing image URL is still present.
+
+![](static/img/must_upload_img.JPG)
 
 Secondly, as a future development, when the Toy already has an existing image uploaded, the image URL can be stored separately and input so as not needing a new image to be uploaded again.
 
